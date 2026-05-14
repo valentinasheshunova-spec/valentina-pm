@@ -257,15 +257,38 @@
 
         .hero-bg-text {
             position: absolute;
-            bottom: 20px;
-            right: -10px;
+            bottom: -10px;
+            right: -14px;
             font-family: var(--serif);
-            font-size: 13rem;
+            font-size: clamp(9rem, 16vw, 16rem);
             font-weight: 900;
-            color: rgba(255,255,255,0.025);
             line-height: 1;
             pointer-events: none;
             user-select: none;
+            letter-spacing: -0.04em;
+            display: flex;
+            gap: 0.02em;
+        }
+        .hero-bg-letter {
+            display: inline-block;
+            background: linear-gradient(160deg,
+                rgba(255,255,255,0.0) 0%,
+                rgba(255,255,255,0.06) 40%,
+                rgba(196,130,42,0.08) 70%,
+                rgba(255,255,255,0.02) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: pm-float 6s ease-in-out infinite;
+        }
+        .hero-bg-letter:nth-child(2) {
+            animation-delay: -2.5s;
+            animation-duration: 7.5s;
+        }
+        @keyframes pm-float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            33%       { transform: translateY(-8px) rotate(-0.4deg); }
+            66%       { transform: translateY(5px) rotate(0.3deg); }
         }
 
         /* ─── STATS ───────────────────────── */
@@ -2069,7 +2092,9 @@
         <div class="hero-photo-frame">
             <img src="фото2.jpg" alt="Валентина Шешунова">
         </div>
-        <div class="hero-bg-text">PM</div>
+        <div class="hero-bg-text">
+            <span class="hero-bg-letter">P</span><span class="hero-bg-letter">M</span>
+        </div>
     </div>
 </section>
 
