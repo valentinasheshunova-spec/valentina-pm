@@ -1621,6 +1621,257 @@
             .sticky-tg { padding: 14px; }
         }
 
+        /* ══ INTERACTIVE ROADMAP ══════════════════════════════ */
+        .rm-interactive {
+            background: #13131C;
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 6px;
+            overflow: hidden;
+            font-family: var(--sans);
+        }
+        .rm-i-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+        .rm-i-legend { display: flex; gap: 18px; align-items: center; }
+        .rm-leg { display: flex; align-items: center; gap: 6px; font-size: 0.6rem; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.3); }
+        .rm-leg-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+        .rm-i-label-top { font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.18); }
+
+        .rm-i-scroll { overflow-x: auto; }
+        .rm-i-table { min-width: 520px; }
+
+        .rm-q-header {
+            display: grid;
+            grid-template-columns: 96px repeat(4, 1fr);
+            border-bottom: 1px solid rgba(255,255,255,0.07);
+        }
+        .rm-q-cell {
+            padding: 10px 8px;
+            font-size: 0.58rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.25);
+            text-align: center;
+            border-left: 1px solid rgba(255,255,255,0.05);
+        }
+        .rm-q-cell:first-child { border-left: none; }
+        .rm-q-cell.current { color: #C4822A; background: rgba(196,130,42,0.07); }
+
+        .rm-row {
+            display: grid;
+            grid-template-columns: 96px 1fr;
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+            min-height: 54px;
+        }
+        .rm-row:last-child { border-bottom: none; }
+        .rm-row-lbl {
+            display: flex;
+            align-items: center;
+            padding: 8px 12px;
+            font-size: 0.6rem;
+            letter-spacing: 0.07em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.22);
+            font-weight: 600;
+            border-right: 1px solid rgba(255,255,255,0.05);
+        }
+        .rm-track {
+            position: relative;
+            display: flex;
+            align-items: center;
+            padding: 8px 4px;
+        }
+        /* quarter grid lines in track */
+        .rm-track::before, .rm-track::after {
+            content: '';
+            position: absolute;
+            top: 0; bottom: 0;
+            width: 1px;
+            background: rgba(255,255,255,0.04);
+        }
+        .rm-track::before { left: 25%; }
+        .rm-track::after  { left: 75%; }
+        .rm-track-mid {
+            position: absolute;
+            top: 0; bottom: 0;
+            left: 50%;
+            width: 1px;
+            background: rgba(255,255,255,0.04);
+        }
+
+        .rm-bar {
+            position: absolute;
+            height: 34px;
+            border-radius: 3px;
+            display: flex;
+            align-items: center;
+            padding: 0 10px;
+            font-size: 0.63rem;
+            font-weight: 600;
+            white-space: nowrap;
+            cursor: pointer;
+            overflow: hidden;
+            transition: filter 0.2s, box-shadow 0.2s, transform 0.15s;
+            transform-origin: left center;
+            opacity: 0;
+            transform: scaleX(0);
+        }
+        .rm-bar.rm-loaded {
+            opacity: 1;
+            transform: scaleX(1);
+            transition: transform 0.7s cubic-bezier(0.22,1,0.36,1), opacity 0.3s,
+                        filter 0.2s, box-shadow 0.2s;
+        }
+        .rm-bar:hover { filter: brightness(1.3); box-shadow: 0 4px 20px rgba(0,0,0,0.35); z-index: 5; transform: scaleX(1) translateY(-1px) !important; }
+        .rm-bar-prog {
+            position: absolute;
+            left: 0; top: 0; height: 100%;
+            background: rgba(255,255,255,0.12);
+            width: var(--p,0%);
+            border-radius: 3px 0 0 3px;
+            transition: width 1.4s ease;
+        }
+        .rm-bar span { position: relative; z-index: 1; }
+        .rm-bar-active  { background: #C4822A; color: #fff; box-shadow: 0 2px 10px rgba(196,130,42,0.3); }
+        .rm-bar-done    { background: rgba(100,190,120,0.22); color: rgba(160,220,160,0.9); border: 1px solid rgba(100,190,120,0.28); }
+        .rm-bar-planned { background: rgba(255,255,255,0.09); color: rgba(255,255,255,0.55); }
+        .rm-bar-ai      { background: rgba(196,130,42,0.32); color: rgba(255,200,130,0.9); }
+
+        .rm-tooltip {
+            position: fixed;
+            background: #1A1816;
+            border: 1px solid rgba(196,130,42,0.4);
+            border-radius: 5px;
+            padding: 14px 16px;
+            font-size: 0.72rem;
+            pointer-events: none;
+            z-index: 2000;
+            min-width: 210px;
+            opacity: 0;
+            transition: opacity 0.15s;
+            box-shadow: 0 10px 36px rgba(0,0,0,0.5);
+        }
+        .rm-tooltip.on { opacity: 1; }
+        .rm-tt-title { font-weight: 700; color: #fff; margin-bottom: 10px; font-size: 0.78rem; }
+        .rm-tt-row { display: flex; gap: 8px; margin-top: 5px; }
+        .rm-tt-k { color: rgba(255,255,255,0.3); font-size: 0.65rem; min-width: 56px; }
+        .rm-tt-v { color: rgba(255,255,255,0.8); font-size: 0.68rem; }
+        .rm-tt-v.amber { color: #C4822A; font-weight: 700; }
+        .rm-tt-v.green { color: #7dc98a; }
+        .rm-tt-v.gray  { color: rgba(255,255,255,0.4); }
+
+        .rm-okr-bar { padding: 11px 20px; border-top: 1px solid rgba(255,255,255,0.06); font-size: 0.64rem; font-weight: 700; color: #C4822A; letter-spacing: 0.04em; }
+
+        /* ══ INTERACTIVE CJM ═══════════════════════════════════ */
+        .cjm-interactive {
+            background: #13131C;
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 6px;
+            overflow: hidden;
+            font-family: var(--sans);
+        }
+        .cjm-stages {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+        }
+        .cjm-col {
+            border-right: 1px solid rgba(255,255,255,0.05);
+            cursor: pointer;
+            transition: background 0.25s;
+        }
+        .cjm-col:last-child { border-right: none; }
+        .cjm-col:hover { background: rgba(255,255,255,0.03); }
+        .cjm-col.active { background: rgba(196,130,42,0.09); }
+        .cjm-col.critical { background: rgba(220,80,80,0.06); }
+        .cjm-col.critical.active { background: rgba(220,80,80,0.11); }
+
+        .cjm-col-head {
+            padding: 14px 12px 10px;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .cjm-col-num { font-size: 0.5rem; letter-spacing: 0.14em; color: rgba(255,255,255,0.18); text-transform: uppercase; margin-bottom: 4px; }
+        .cjm-col-name { font-size: 0.7rem; font-weight: 700; color: rgba(255,255,255,0.5); letter-spacing: 0.03em; }
+        .cjm-col.active .cjm-col-name { color: #C4822A; }
+        .cjm-col.critical .cjm-col-name { color: rgba(220,110,110,0.95); }
+
+        .cjm-col-action {
+            padding: 9px 12px 8px;
+            font-size: 0.67rem;
+            color: rgba(255,255,255,0.4);
+            line-height: 1.45;
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+            min-height: 52px;
+        }
+        .cjm-col-emoji {
+            padding: 10px 12px;
+            font-size: 1.3rem;
+            line-height: 1;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .cjm-col-emoji-label { font-size: 0.6rem; color: rgba(255,255,255,0.22); letter-spacing: 0.06em; }
+
+        /* Emotion curve */
+        .cjm-curve-wrap {
+            border-top: 1px solid rgba(255,255,255,0.05);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            background: rgba(0,0,0,0.15);
+            padding: 0;
+            position: relative;
+        }
+        .cjm-curve-svg { width: 100%; height: 72px; display: block; }
+        .cjm-curve-path {
+            fill: none;
+            stroke: #C4822A;
+            stroke-width: 2.5;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            stroke-dasharray: 600;
+            stroke-dashoffset: 600;
+            transition: stroke-dashoffset 1.6s cubic-bezier(0.22,1,0.36,1);
+        }
+        .cjm-curve-path.drawn { stroke-dashoffset: 0; }
+        .cjm-curve-area {
+            fill: url(#cjmGrad);
+            opacity: 0;
+            transition: opacity 1.8s ease;
+        }
+        .cjm-curve-area.drawn { opacity: 1; }
+
+        /* Detail panel */
+        .cjm-detail {
+            border-top: 2px solid rgba(196,130,42,0.25);
+            background: rgba(196,130,42,0.04);
+            overflow: hidden;
+            max-height: 0;
+            transition: max-height 0.45s cubic-bezier(0.22,1,0.36,1);
+        }
+        .cjm-detail.open { max-height: 200px; }
+        .cjm-detail-inner {
+            padding: 20px 24px;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+        }
+        .cjm-db h4 { font-size: 0.55rem; letter-spacing: 0.13em; text-transform: uppercase; color: rgba(255,255,255,0.2); margin-bottom: 7px; }
+        .cjm-db p { font-size: 0.75rem; color: rgba(255,255,255,0.6); line-height: 1.5; }
+        .cjm-tag {
+            display: inline-block;
+            font-size: 0.62rem; font-weight: 700; letter-spacing: 0.05em;
+            padding: 3px 9px; border-radius: 2px; margin-top: 7px;
+        }
+        .cjm-tag.red   { background: rgba(220,80,80,0.15);  border: 1px solid rgba(220,80,80,0.3);  color: rgba(220,120,120,0.95); }
+        .cjm-tag.amber { background: rgba(196,130,42,0.15); border: 1px solid rgba(196,130,42,0.35); color: #C4822A; }
+        .cjm-tag.green { background: rgba(100,190,120,0.15); border: 1px solid rgba(100,190,120,0.3); color: rgba(140,210,140,0.9); }
+
+        .cjm-result-bar { padding: 12px 24px; border-top: 1px solid rgba(255,255,255,0.06); font-size: 0.66rem; font-weight: 700; color: #C4822A; letter-spacing: 0.04em; }
+        .cjm-hint { padding: 8px 24px; font-size: 0.6rem; color: rgba(255,255,255,0.18); letter-spacing: 0.06em; border-bottom: 1px solid rgba(255,255,255,0.04); }
+
         /* ══ PREMIUM EFFECTS ══════════════════════════════════ */
 
         /* Mouse spotlight */
@@ -2434,78 +2685,122 @@
                 и какой результат ожидаем в каждом спринте.
             </p>
         </div>
-        <div class="artifact-svg-wrap fade-in">
-            <svg viewBox="0 0 560 280" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;">
-                <defs>
-                    <style>
-                        .rm-label { font-family: Inter, sans-serif; font-size: 10px; fill: rgba(255,255,255,0.4); letter-spacing: 0.08em; text-transform: uppercase; }
-                        .rm-title { font-family: Inter, sans-serif; font-size: 11px; font-weight: 600; fill: rgba(255,255,255,0.75); }
-                        .rm-tag   { font-family: Inter, sans-serif; font-size: 9px;  font-weight: 500; fill: rgba(255,255,255,0.35); }
-                        .rm-okr   { font-family: Inter, sans-serif; font-size: 9px;  font-weight: 600; fill: #C4822A; }
-                    </style>
-                </defs>
-                <!-- Grid background -->
-                <rect width="560" height="280" fill="transparent"/>
-                <!-- Quarter headers -->
-                <rect x="100" y="0"  width="115" height="28" fill="rgba(196,130,42,0.15)" rx="1"/>
-                <rect x="217" y="0"  width="115" height="28" fill="rgba(255,255,255,0.04)" rx="1"/>
-                <rect x="334" y="0"  width="115" height="28" fill="rgba(255,255,255,0.04)" rx="1"/>
-                <rect x="451" y="0"  width="109" height="28" fill="rgba(255,255,255,0.04)" rx="1"/>
-                <text x="157" y="18" class="rm-label" text-anchor="middle">Q1 — СЕЙЧАС</text>
-                <text x="274" y="18" class="rm-label" text-anchor="middle">Q2</text>
-                <text x="391" y="18" class="rm-label" text-anchor="middle">Q3</text>
-                <text x="505" y="18" class="rm-label" text-anchor="middle">Q4</text>
-                <!-- Row labels -->
-                <text x="8"  y="60"  class="rm-tag">Discovery</text>
-                <text x="8"  y="110" class="rm-tag">Retention</text>
-                <text x="8"  y="160" class="rm-tag">Growth</text>
-                <text x="8"  y="210" class="rm-tag">AI / Auto</text>
-                <text x="8"  y="258" class="rm-tag">Infra</text>
-                <!-- Horizontal dividers -->
-                <line x1="100" y1="32"  x2="560" y2="32"  stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
-                <line x1="100" y1="78"  x2="560" y2="78"  stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
-                <line x1="100" y1="128" x2="560" y2="128" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
-                <line x1="100" y1="178" x2="560" y2="178" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
-                <line x1="100" y1="228" x2="560" y2="228" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
-                <!-- Vertical dividers -->
-                <line x1="100" y1="0" x2="100" y2="280" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
-                <line x1="217" y1="0" x2="217" y2="280" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
-                <line x1="334" y1="0" x2="334" y2="280" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
-                <line x1="451" y1="0" x2="451" y2="280" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
-                <!-- Bars: Discovery -->
-                <rect x="104" y="40" width="108" height="28" fill="#C4822A" rx="2"/>
-                <text x="158" y="59" class="rm-title" text-anchor="middle">50+ CustDev-интервью</text>
-                <rect x="221" y="40" width="60"  height="28" fill="rgba(196,130,42,0.35)" rx="2"/>
-                <text x="251" y="59" class="rm-title" text-anchor="middle">CJM v2</text>
-                <!-- Bars: Retention -->
-                <rect x="104" y="88"  width="72"  height="28" fill="rgba(255,255,255,0.1)" rx="2"/>
-                <text x="140" y="107" class="rm-title" text-anchor="middle">Онбординг</text>
-                <rect x="182" y="88"  width="112" height="28" fill="rgba(255,255,255,0.1)" rx="2"/>
-                <text x="238" y="107" class="rm-title" text-anchor="middle">Триггерные письма</text>
-                <rect x="300" y="88"  width="80"  height="28" fill="rgba(255,255,255,0.06)" rx="2"/>
-                <text x="340" y="107" class="rm-title" text-anchor="middle">D7/D30 тест</text>
-                <!-- Bars: Growth -->
-                <rect x="221" y="138" width="100" height="28" fill="rgba(255,255,255,0.08)" rx="2"/>
-                <text x="271" y="157" class="rm-title" text-anchor="middle">Реф. программа</text>
-                <rect x="334" y="138" width="130" height="28" fill="rgba(255,255,255,0.08)" rx="2"/>
-                <text x="399" y="157" class="rm-title" text-anchor="middle">Масштаб на регионы</text>
-                <!-- Bars: AI -->
-                <rect x="104" y="188" width="56"  height="28" fill="rgba(196,130,42,0.4)" rx="2"/>
-                <text x="132" y="207" class="rm-title" text-anchor="middle">GPT MVP</text>
-                <rect x="166" y="188" width="100" height="28" fill="rgba(196,130,42,0.25)" rx="2"/>
-                <text x="216" y="207" class="rm-title" text-anchor="middle">AI-онбординг</text>
-                <rect x="334" y="188" width="80"  height="28" fill="rgba(196,130,42,0.15)" rx="2"/>
-                <text x="374" y="207" class="rm-title" text-anchor="middle">Авто-саппорт</text>
-                <!-- Bars: Infra -->
-                <rect x="104" y="238" width="44"  height="28" fill="rgba(255,255,255,0.06)" rx="2"/>
-                <text x="126" y="257" class="rm-title" text-anchor="middle">KPI</text>
-                <rect x="154" y="238" width="80"  height="28" fill="rgba(255,255,255,0.06)" rx="2"/>
-                <text x="194" y="257" class="rm-title" text-anchor="middle">Дашборд</text>
-                <rect x="334" y="238" width="100" height="28" fill="rgba(255,255,255,0.04)" rx="2"/>
-                <text x="384" y="257" class="rm-title" text-anchor="middle">OKR Q4</text>
-                <!-- OKR annotation -->
-                <text x="104" y="276" class="rm-okr">OKR: Retention 35% → 55% · NPS 52 → 85+</text>
-            </svg>
+        <div class="rm-interactive fade-in" id="rmInteractive">
+            <div class="rm-i-header">
+                <div class="rm-i-legend">
+                    <div class="rm-leg"><div class="rm-leg-dot" style="background:#C4822A"></div>В работе</div>
+                    <div class="rm-leg"><div class="rm-leg-dot" style="background:rgba(100,190,120,0.7)"></div>Готово</div>
+                    <div class="rm-leg"><div class="rm-leg-dot" style="background:rgba(255,255,255,0.18)"></div>Планируется</div>
+                </div>
+                <div class="rm-i-label-top">2026 · Q1–Q4 · Наведи на задачу</div>
+            </div>
+            <div class="rm-i-scroll">
+                <div class="rm-i-table">
+                    <div class="rm-q-header">
+                        <div class="rm-q-cell" style="border-left:none;text-align:left;padding-left:12px;">Трек</div>
+                        <div class="rm-q-cell current">Q1 · Сейчас</div>
+                        <div class="rm-q-cell">Q2</div>
+                        <div class="rm-q-cell">Q3</div>
+                        <div class="rm-q-cell">Q4</div>
+                    </div>
+                    <!-- Discovery -->
+                    <div class="rm-row">
+                        <div class="rm-row-lbl">Discovery</div>
+                        <div class="rm-track">
+                            <div class="rm-track-mid"></div>
+                            <div class="rm-bar rm-bar-active" style="left:0.5%;width:24%;"
+                                data-t="50+ CustDev-интервью" data-ice="ICE: 8.4" data-status="В работе · 70%" data-impact="+Activation +28%" data-owner="PM + Research">
+                                <div class="rm-bar-prog" style="--p:70%"></div><span>50+ CustDev-интервью</span>
+                            </div>
+                            <div class="rm-bar rm-bar-planned" style="left:25.5%;width:11%;"
+                                data-t="CJM v2" data-ice="ICE: 7.0" data-status="Планируется" data-impact="+Фокус retention" data-owner="PM">
+                                <span>CJM v2</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Retention -->
+                    <div class="rm-row">
+                        <div class="rm-row-lbl">Retention</div>
+                        <div class="rm-track">
+                            <div class="rm-track-mid"></div>
+                            <div class="rm-bar rm-bar-done" style="left:0.5%;width:13%;"
+                                data-t="Онбординг v2" data-ice="ICE: 9.1" data-status="Готово ✓" data-impact="+Activation +23%" data-owner="PM + Design + Dev">
+                                <span>Онбординг v2</span>
+                            </div>
+                            <div class="rm-bar rm-bar-active" style="left:14%;width:27%;"
+                                data-t="Триггерные email/push" data-ice="ICE: 8.0" data-status="В работе · 45%" data-impact="+D7 Retention +18%" data-owner="PM + Growth">
+                                <div class="rm-bar-prog" style="--p:45%"></div><span>Триггерные письма</span>
+                            </div>
+                            <div class="rm-bar rm-bar-planned" style="left:50%;width:14%;"
+                                data-t="A/B тест D7/D30" data-ice="ICE: 7.5" data-status="Планируется" data-impact="+D30 Retention +12%" data-owner="PM + Analytics">
+                                <span>D7/D30 тест</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Growth -->
+                    <div class="rm-row">
+                        <div class="rm-row-lbl">Growth</div>
+                        <div class="rm-track">
+                            <div class="rm-track-mid"></div>
+                            <div class="rm-bar rm-bar-planned" style="left:25.5%;width:19%;"
+                                data-t="Реферальная программа" data-ice="ICE: 7.2" data-status="Планируется" data-impact="+Referral +40%" data-owner="PM + Marketing">
+                                <span>Реф. программа</span>
+                            </div>
+                            <div class="rm-bar rm-bar-planned" style="left:50.5%;width:23%;"
+                                data-t="Масштаб на регионы" data-ice="ICE: 6.8" data-status="Планируется" data-impact="+TAM ×2.5" data-owner="PM + BizDev">
+                                <span>Масштаб на регионы</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- AI -->
+                    <div class="rm-row">
+                        <div class="rm-row-lbl">AI / Auto</div>
+                        <div class="rm-track">
+                            <div class="rm-track-mid"></div>
+                            <div class="rm-bar rm-bar-done" style="left:0.5%;width:11%;"
+                                data-t="GPT-ассистент MVP" data-ice="ICE: 9.0" data-status="Готово ✓" data-impact="+NPS +22 pt" data-owner="PM + AI Dev">
+                                <span>GPT MVP</span>
+                            </div>
+                            <div class="rm-bar rm-bar-ai" style="left:12.5%;width:23%;"
+                                data-t="AI-онбординг" data-ice="ICE: 8.6" data-status="В работе · 35%" data-impact="+Activation +30%" data-owner="PM + AI Dev">
+                                <div class="rm-bar-prog" style="--p:35%"></div><span>AI-онбординг</span>
+                            </div>
+                            <div class="rm-bar rm-bar-planned" style="left:50.5%;width:15%;"
+                                data-t="Авто-саппорт 24/7" data-ice="ICE: 7.8" data-status="Планируется" data-impact="-CSC -35%" data-owner="PM + AI Dev">
+                                <span>Авто-саппорт</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Infra -->
+                    <div class="rm-row">
+                        <div class="rm-row-lbl">Infra</div>
+                        <div class="rm-track">
+                            <div class="rm-track-mid"></div>
+                            <div class="rm-bar rm-bar-done" style="left:0.5%;width:9%;"
+                                data-t="KPI-система" data-ice="ICE: 8.8" data-status="Готово ✓" data-impact="Видимость метрик ×3" data-owner="PM + Analytics">
+                                <span>KPI</span>
+                            </div>
+                            <div class="rm-bar rm-bar-active" style="left:10%;width:16%;"
+                                data-t="Аналитический дашборд" data-ice="ICE: 8.2" data-status="В работе · 50%" data-impact="-Time to insight -60%" data-owner="PM + Analytics">
+                                <div class="rm-bar-prog" style="--p:50%"></div><span>Дашборд</span>
+                            </div>
+                            <div class="rm-bar rm-bar-planned" style="left:75.5%;width:18%;"
+                                data-t="OKR Q4 + планирование" data-ice="ICE: 7.0" data-status="Планируется" data-impact="Alignment команды" data-owner="PM + C-level">
+                                <span>OKR Q4</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="rm-okr-bar">OKR 2026: Retention 35%→55% · NPS 52→85+ · CAC ÷ 2 · Запуск в 2+ регионах</div>
+        </div>
+        <!-- Tooltip -->
+        <div class="rm-tooltip" id="rmTooltip">
+            <div class="rm-tt-title" id="rmTtTitle"></div>
+            <div class="rm-tt-row"><span class="rm-tt-k">ICE</span><span class="rm-tt-v amber" id="rmTtIce"></span></div>
+            <div class="rm-tt-row"><span class="rm-tt-k">Статус</span><span class="rm-tt-v" id="rmTtStatus"></span></div>
+            <div class="rm-tt-row"><span class="rm-tt-k">Impact</span><span class="rm-tt-v amber" id="rmTtImpact"></span></div>
+            <div class="rm-tt-row"><span class="rm-tt-k">Владелец</span><span class="rm-tt-v gray" id="rmTtOwner"></span></div>
         </div>
     </div>
 
@@ -2520,81 +2815,106 @@
                 Именно здесь находится узкое место, которое съедает конверсию.
             </p>
         </div>
-        <div class="artifact-svg-wrap fade-in">
-            <svg viewBox="0 0 560 215" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;">
-                <defs>
-                    <style>
-                        .cjm-stage  { font-family: Inter, sans-serif; font-size: 9px; font-weight: 700; fill: rgba(255,255,255,0.3); letter-spacing: 0.07em; text-transform: uppercase; }
-                        .cjm-action { font-family: Inter, sans-serif; font-size: 9.5px; font-weight: 400; fill: rgba(255,255,255,0.55); }
-                        .cjm-row    { font-family: Inter, sans-serif; font-size: 7.5px; font-weight: 700; fill: rgba(255,255,255,0.18); letter-spacing: 0.1em; text-transform: uppercase; }
-                        .cjm-pain   { font-family: Inter, sans-serif; font-size: 8.5px; fill: rgba(224,112,112,0.85); }
-                        .cjm-fix    { font-family: Inter, sans-serif; font-size: 8.5px; font-weight: 600; fill: #C4822A; }
-                        .cjm-result { font-family: Inter, sans-serif; font-size: 8.5px; font-weight: 600; fill: #C4822A; }
-                    </style>
-                </defs>
+        <div class="cjm-interactive fade-in" id="cjmInteractive">
+            <div class="cjm-hint">← Нажми на любую стадию, чтобы увидеть барьер и решение PM →</div>
+            <div class="cjm-stages">
+                <!-- Stage 1 -->
+                <div class="cjm-col" data-stage="0">
+                    <div class="cjm-col-head">
+                        <div class="cjm-col-num">01 · Знакомство</div>
+                        <div class="cjm-col-name">Awareness</div>
+                    </div>
+                    <div class="cjm-col-action">Видит таргет или рекомендацию, переходит на лендинг</div>
+                    <div class="cjm-col-emoji">😊 <span class="cjm-col-emoji-label">Интерес</span></div>
+                </div>
+                <!-- Stage 2 -->
+                <div class="cjm-col" data-stage="1">
+                    <div class="cjm-col-head">
+                        <div class="cjm-col-num">02 · Регистрация</div>
+                        <div class="cjm-col-name">Sign-up</div>
+                    </div>
+                    <div class="cjm-col-action">Заполняет форму: email, пароль, 8 обязательных полей</div>
+                    <div class="cjm-col-emoji">😐 <span class="cjm-col-emoji-label">Нейтрально</span></div>
+                </div>
+                <!-- Stage 3 — CRITICAL -->
+                <div class="cjm-col critical" data-stage="2">
+                    <div class="cjm-col-head">
+                        <div class="cjm-col-num">03 · Онбординг ⚠</div>
+                        <div class="cjm-col-name">Onboarding</div>
+                    </div>
+                    <div class="cjm-col-action">7 шагов настройки профиля — непонятно зачем и что дальше</div>
+                    <div class="cjm-col-emoji">😤 <span class="cjm-col-emoji-label">Раздражение</span></div>
+                </div>
+                <!-- Stage 4 -->
+                <div class="cjm-col" data-stage="3">
+                    <div class="cjm-col-head">
+                        <div class="cjm-col-num">04 · Активация</div>
+                        <div class="cjm-col-name">Activation</div>
+                    </div>
+                    <div class="cjm-col-action">Получает первый ощутимый результат / завершает урок</div>
+                    <div class="cjm-col-emoji">😃 <span class="cjm-col-emoji-label">Удовлетворение</span></div>
+                </div>
+                <!-- Stage 5 -->
+                <div class="cjm-col" data-stage="4">
+                    <div class="cjm-col-head">
+                        <div class="cjm-col-num">05 · Удержание</div>
+                        <div class="cjm-col-name">Retention</div>
+                    </div>
+                    <div class="cjm-col-action">Возвращается, оплачивает следующий период</div>
+                    <div class="cjm-col-emoji">🤩 <span class="cjm-col-emoji-label">Лояльность</span></div>
+                </div>
+            </div>
 
-                <!-- Stage backgrounds -->
-                <rect x="0"   y="0" width="112" height="28" fill="rgba(255,255,255,0.03)" rx="1"/>
-                <rect x="112" y="0" width="112" height="28" fill="rgba(255,255,255,0.03)" rx="1"/>
-                <rect x="224" y="0" width="112" height="28" fill="rgba(196,130,42,0.13)" rx="1"/>
-                <rect x="336" y="0" width="112" height="28" fill="rgba(255,255,255,0.03)" rx="1"/>
-                <rect x="448" y="0" width="112" height="28" fill="rgba(255,255,255,0.03)" rx="1"/>
+            <!-- Emotion curve -->
+            <div class="cjm-curve-wrap">
+                <svg class="cjm-curve-svg" viewBox="0 0 560 72" preserveAspectRatio="none" id="cjmSvg">
+                    <defs>
+                        <linearGradient id="cjmGrad" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#C4822A" stop-opacity="0.25"/>
+                            <stop offset="100%" stop-color="#C4822A" stop-opacity="0"/>
+                        </linearGradient>
+                    </defs>
+                    <!-- Area fill -->
+                    <path id="cjmArea"
+                        d="M56,22 C90,22 135,32 168,34 C200,36 245,58 280,58 C315,58 352,20 392,18 C430,16 472,10 504,8 L504,72 L56,72 Z"
+                        class="cjm-curve-area"/>
+                    <!-- Curve -->
+                    <path id="cjmPath"
+                        d="M56,22 C90,22 135,32 168,34 C200,36 245,58 280,58 C315,58 352,20 392,18 C430,16 472,10 504,8"
+                        class="cjm-curve-path"/>
+                    <!-- Dots -->
+                    <circle cx="56"  cy="22" r="4" fill="#7dc98a" id="cjmDot0"/>
+                    <circle cx="168" cy="34" r="4" fill="#C4822A" id="cjmDot1"/>
+                    <circle cx="280" cy="58" r="5.5" fill="#e07070" id="cjmDot2"/>
+                    <circle cx="392" cy="18" r="4" fill="#C4822A" id="cjmDot3"/>
+                    <circle cx="504" cy="8"  r="4" fill="#7dc98a" id="cjmDot4"/>
+                    <!-- Drop-off label -->
+                    <text x="280" y="72" text-anchor="middle" style="font-family:Inter,sans-serif;font-size:8px;fill:rgba(220,100,100,0.8);font-weight:700;">▼ 62% drop-off</text>
+                </svg>
+            </div>
 
-                <!-- Stage names -->
-                <text x="56"  y="18" class="cjm-stage" text-anchor="middle">Знакомство</text>
-                <text x="168" y="18" class="cjm-stage" text-anchor="middle">Регистрация</text>
-                <text x="280" y="18" class="cjm-stage" text-anchor="middle" style="fill:rgba(196,130,42,0.9)">Онбординг</text>
-                <text x="392" y="18" class="cjm-stage" text-anchor="middle">Активация</text>
-                <text x="504" y="18" class="cjm-stage" text-anchor="middle">Удержание</text>
+            <!-- Detail panel -->
+            <div class="cjm-detail" id="cjmDetail">
+                <div class="cjm-detail-inner">
+                    <div class="cjm-db">
+                        <h4>Барьер / боль</h4>
+                        <p id="cjmPain"></p>
+                        <div id="cjmPainTag"></div>
+                    </div>
+                    <div class="cjm-db">
+                        <h4>Решение PM</h4>
+                        <p id="cjmFix"></p>
+                        <div id="cjmFixTag"></div>
+                    </div>
+                    <div class="cjm-db">
+                        <h4>Результат</h4>
+                        <p id="cjmMetric"></p>
+                        <div id="cjmMetricTag"></div>
+                    </div>
+                </div>
+            </div>
 
-                <!-- Vertical dividers -->
-                <line x1="112" y1="0" x2="112" y2="215" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
-                <line x1="224" y1="0" x2="224" y2="215" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
-                <line x1="336" y1="0" x2="336" y2="215" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
-                <line x1="448" y1="0" x2="448" y2="215" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
-
-                <!-- Row: Actions -->
-                <line x1="0" y1="30" x2="560" y2="30" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
-                <text x="4" y="43" class="cjm-row">Действие</text>
-                <text x="56"  y="46" class="cjm-action" text-anchor="middle">Видит рекламу</text>
-                <text x="168" y="46" class="cjm-action" text-anchor="middle">Заполняет форму</text>
-                <text x="280" y="46" class="cjm-action" text-anchor="middle">7 шагов настройки</text>
-                <text x="392" y="46" class="cjm-action" text-anchor="middle">Первый результат</text>
-                <text x="504" y="46" class="cjm-action" text-anchor="middle">Платит снова</text>
-
-                <!-- Row: Emotion curve -->
-                <line x1="0" y1="58" x2="560" y2="58" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
-                <text x="4" y="69" class="cjm-row">Эмоция</text>
-                <!-- Smooth curve: enthused → slight friction → frustrated → relieved → loyal -->
-                <path d="M56,78 C90,78 135,88 168,88 C200,88 250,114 280,114 C312,114 356,76 392,76 C430,76 472,66 504,66"
-                      fill="none" stroke="#C4822A" stroke-width="2" stroke-linecap="round"/>
-                <!-- Dots -->
-                <circle cx="56"  cy="78"  r="3.5" fill="#7bb88a"/>
-                <circle cx="168" cy="88"  r="3.5" fill="#C4822A"/>
-                <circle cx="280" cy="114" r="5"   fill="#e07070"/>
-                <circle cx="392" cy="76"  r="3.5" fill="#C4822A"/>
-                <circle cx="504" cy="66"  r="3.5" fill="#7bb88a"/>
-                <!-- Drop-off annotation -->
-                <text x="280" y="127" class="cjm-pain" text-anchor="middle">▼ 62% уходят здесь</text>
-
-                <!-- Row: Pain -->
-                <line x1="0" y1="134" x2="560" y2="134" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
-                <text x="4" y="146" class="cjm-row">Барьер</text>
-                <text x="168" y="150" class="cjm-pain" text-anchor="middle">Длинная форма</text>
-                <text x="280" y="148" class="cjm-pain" text-anchor="middle">Слишком сложно,</text>
-                <text x="280" y="158" class="cjm-pain" text-anchor="middle">закрыли вкладку</text>
-
-                <!-- Row: PM fix -->
-                <line x1="0" y1="166" x2="560" y2="166" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
-                <text x="4" y="178" class="cjm-row">Решение PM</text>
-                <text x="168" y="182" class="cjm-fix" text-anchor="middle">→ 1-click signup</text>
-                <text x="280" y="182" class="cjm-fix" text-anchor="middle">→ 3 шага вместо 7</text>
-                <text x="392" y="182" class="cjm-fix" text-anchor="middle">→ Aha-moment раньше</text>
-                <text x="504" y="182" class="cjm-fix" text-anchor="middle">→ Триггер D7</text>
-
-                <!-- Result -->
-                <text x="4" y="210" class="cjm-result">Итог: Activation +23% · D30 Retention 18% → 42% · NPS 52 → 90+</text>
-            </svg>
+            <div class="cjm-result-bar">Итог: Activation +23% · D30 Retention 18%→42% · NPS 52→90+</div>
         </div>
     </div>
 </section>
@@ -2982,6 +3302,123 @@
                 heroLeft.style.transform = `translateY(${window.scrollY * 0.12}px)`;
         }, { passive: true });
     }
+
+    /* ── Interactive Roadmap ── */
+    const rmTooltip = document.getElementById('rmTooltip');
+    const rmTtTitle  = document.getElementById('rmTtTitle');
+    const rmTtIce    = document.getElementById('rmTtIce');
+    const rmTtStatus = document.getElementById('rmTtStatus');
+    const rmTtImpact = document.getElementById('rmTtImpact');
+    const rmTtOwner  = document.getElementById('rmTtOwner');
+
+    document.querySelectorAll('.rm-bar').forEach(bar => {
+        bar.addEventListener('mouseenter', e => {
+            rmTtTitle.textContent  = bar.dataset.t;
+            rmTtIce.textContent    = bar.dataset.ice;
+            rmTtStatus.textContent = bar.dataset.status;
+            rmTtImpact.textContent = bar.dataset.impact;
+            rmTtOwner.textContent  = bar.dataset.owner;
+            rmTtStatus.className   = 'rm-tt-v ' + (bar.dataset.status.includes('Готово') ? 'green' : bar.dataset.status.includes('В работе') ? 'amber' : 'gray');
+            rmTooltip.classList.add('on');
+        });
+        bar.addEventListener('mousemove', e => {
+            const x = e.clientX + 16, y = e.clientY - 10;
+            const tw = rmTooltip.offsetWidth, th = rmTooltip.offsetHeight;
+            rmTooltip.style.left = (x + tw > window.innerWidth  ? x - tw - 32 : x) + 'px';
+            rmTooltip.style.top  = (y + th > window.innerHeight ? y - th      : y) + 'px';
+        });
+        bar.addEventListener('mouseleave', () => rmTooltip.classList.remove('on'));
+    });
+
+    // Animate bars on scroll
+    const rmIo = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const bars = entry.target.querySelectorAll('.rm-bar');
+                bars.forEach((b, i) => {
+                    setTimeout(() => {
+                        b.classList.add('rm-loaded');
+                        // activate progress after bar appears
+                        setTimeout(() => {
+                            const prog = b.querySelector('.rm-bar-prog');
+                            if (prog) prog.style.width = getComputedStyle(prog).getPropertyValue('--p') || '0%';
+                        }, 400);
+                    }, i * 120);
+                });
+                rmIo.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.2 });
+    const rmEl = document.getElementById('rmInteractive');
+    if (rmEl) rmIo.observe(rmEl);
+
+    /* ── Interactive CJM ── */
+    const cjmData = [
+        { pain: 'Скептицизм и много конкурентов — сложно выделиться на перегретом рынке.',
+          painTag: '', fix: 'Сильный value prop на лендинге, social proof, конкретная цифра выгоды в заголовке.',
+          fixTag: 'A/B тест заголовков', metric: 'CTR +18% · Bounce -24%', metricTag: 'Замеряем сразу', metricColor: 'green' },
+        { pain: '8 обязательных полей при регистрации — пользователь устаёт и закрывает вкладку.',
+          painTag: '↓ Conv. reg. −23%', fix: '1-click signup через Google/Telegram, поле email + кнопка. Остальное — после.',
+          fixTag: '1-click signup', metric: 'Conversion rate +34%', metricTag: 'D0 улучшение', metricColor: 'green' },
+        { pain: '7 шагов настройки без понятной ценности на каждом шаге. Пользователь не понимает, зачем. 62% уходят.',
+          painTag: '⚠ 62% drop-off', fix: 'Сократить до 3 шагов. Показать aha-moment на шаге 2. Прогресс-бар с "осталось 1 шаг".',
+          fixTag: '→ 3 шага вместо 7', metric: 'Activation +23% · D1 Ret. +31%', metricTag: 'Главный рычаг', metricColor: 'amber' },
+        { pain: 'Слишком долго до первого ощутимого WOW — пользователь не видит ценности быстро.',
+          painTag: '↓ D1 Retention', fix: 'Quick win на первых 5 минутах. Aha-moment встроен в онбординг, не откладывается.',
+          fixTag: '→ Aha-moment раньше', metric: 'D7 Retention +28%', metricTag: 'Лояльность растёт', metricColor: 'green' },
+        { pain: 'Нет триггеров возврата — пользователь забывает о продукте после первой недели.',
+          painTag: '↑ Churn D30', fix: 'D7/D30 email-цепочка, push-уведомления по событиям, реферальный бонус за приглашение друга.',
+          fixTag: '→ D7/D30 триггеры', metric: 'D30 Retention 18%→42%', metricTag: 'Ключевая метрика', metricColor: 'amber' }
+    ];
+
+    const cjmCols  = document.querySelectorAll('.cjm-col');
+    const cjmDetail = document.getElementById('cjmDetail');
+    const cjmPainEl = document.getElementById('cjmPain');
+    const cjmPainTagEl = document.getElementById('cjmPainTag');
+    const cjmFixEl  = document.getElementById('cjmFix');
+    const cjmFixTagEl = document.getElementById('cjmFixTag');
+    const cjmMetricEl = document.getElementById('cjmMetric');
+    const cjmMetricTagEl = document.getElementById('cjmMetricTag');
+    let cjmActive = -1;
+
+    cjmCols.forEach((col, i) => {
+        col.addEventListener('click', () => {
+            if (cjmActive === i) {
+                cjmCols.forEach(c => c.classList.remove('active'));
+                cjmDetail.classList.remove('open');
+                cjmActive = -1;
+                return;
+            }
+            cjmCols.forEach(c => c.classList.remove('active'));
+            col.classList.add('active');
+            cjmActive = i;
+            const d = cjmData[i];
+            cjmPainEl.textContent = d.pain;
+            cjmPainTagEl.innerHTML = d.painTag ? `<span class="cjm-tag red">${d.painTag}</span>` : '';
+            cjmFixEl.textContent = d.fix;
+            cjmFixTagEl.innerHTML = `<span class="cjm-tag amber">${d.fixTag}</span>`;
+            cjmMetricEl.textContent = d.metric;
+            cjmMetricTagEl.innerHTML = `<span class="cjm-tag ${d.metricColor}">${d.metricTag}</span>`;
+            cjmDetail.classList.add('open');
+        });
+    });
+
+    // Draw emotion curve on scroll
+    const cjmPath = document.getElementById('cjmPath');
+    const cjmArea = document.getElementById('cjmArea');
+    const cjmIo = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+            if (e.isIntersecting) {
+                setTimeout(() => {
+                    if (cjmPath) cjmPath.classList.add('drawn');
+                    if (cjmArea) cjmArea.classList.add('drawn');
+                }, 200);
+                cjmIo.unobserve(e.target);
+            }
+        });
+    }, { threshold: 0.3 });
+    const cjmEl = document.getElementById('cjmInteractive');
+    if (cjmEl) cjmIo.observe(cjmEl);
 
     /* ── Mouse spotlight ── */
     const spotlight = document.getElementById('spotlight');
