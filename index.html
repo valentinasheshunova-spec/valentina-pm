@@ -1617,6 +1617,163 @@
             .sticky-tg span { display: none; }
             .sticky-tg { padding: 14px; }
         }
+
+        /* ══ PREMIUM EFFECTS ══════════════════════════════════ */
+
+        /* Mouse spotlight */
+        .spotlight {
+            pointer-events: none;
+            position: fixed;
+            inset: 0;
+            z-index: 1;
+            background: radial-gradient(600px circle at var(--mx,50%) var(--my,50%),
+                rgba(196,130,42,0.07) 0%,
+                rgba(196,130,42,0.03) 30%,
+                transparent 70%);
+            transition: background 0.15s ease;
+        }
+
+        /* Aurora in dark sections */
+        #stats { position: relative; overflow: hidden; }
+        #stats::before {
+            content: '';
+            position: absolute;
+            inset: -50%;
+            background: conic-gradient(
+                from 0deg at 50% 50%,
+                transparent 0deg,
+                rgba(196,130,42,0.06) 60deg,
+                transparent 120deg,
+                rgba(100,80,160,0.04) 200deg,
+                transparent 260deg,
+                rgba(196,130,42,0.05) 320deg,
+                transparent 360deg
+            );
+            animation: aurora-spin 22s linear infinite;
+            pointer-events: none;
+        }
+        @keyframes aurora-spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Hero particles */
+        .hero-particle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.55);
+            pointer-events: none;
+            animation: particle-drift linear infinite;
+        }
+        @keyframes particle-drift {
+            0%   { transform: translateY(0)   translateX(0)   scale(1);   opacity: 0; }
+            10%  { opacity: 1; }
+            90%  { opacity: 0.6; }
+            100% { transform: translateY(-100vh) translateX(var(--dx,20px)) scale(0.4); opacity: 0; }
+        }
+
+        /* Card shine sweep */
+        .case-card, .whyme-card, .process-step {
+            overflow: hidden;
+        }
+        .case-card::after, .whyme-card::after, .process-step::after {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 60%;
+            height: 100%;
+            background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.18) 50%, transparent 60%);
+            transition: left 0.55s ease;
+            pointer-events: none;
+        }
+        .case-card { position: relative; }
+        .whyme-card { position: relative; }
+        .process-step { position: relative; }
+        .case-card:hover::after, .whyme-card:hover::after, .process-step:hover::after { left: 140%; }
+
+        /* Click ripple */
+        .ripple-wave {
+            position: fixed;
+            border-radius: 50%;
+            transform: scale(0);
+            background: rgba(196,130,42,0.18);
+            pointer-events: none;
+            z-index: 9999;
+            animation: ripple-expand 0.7s cubic-bezier(0.22,1,0.36,1) forwards;
+        }
+        @keyframes ripple-expand {
+            to { transform: scale(4); opacity: 0; }
+        }
+
+        /* Hero entrance — lines appear with clip-path */
+        .hero-reveal {
+            clip-path: inset(0 0 100% 0);
+            opacity: 0;
+            transform: translateY(18px);
+            transition: clip-path 0.85s cubic-bezier(0.22,1,0.36,1),
+                        opacity 0.5s ease,
+                        transform 0.85s cubic-bezier(0.22,1,0.36,1);
+        }
+        .hero-reveal.revealed {
+            clip-path: inset(0 0 0% 0);
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Section numbers glow on scroll into view */
+        .section-number {
+            transition: color 0.6s ease, text-shadow 0.6s ease;
+        }
+        .section-number.lit {
+            color: var(--accent);
+            text-shadow: 0 0 60px rgba(196,130,42,0.25);
+        }
+
+        /* Stat items — glow pulse after counter */
+        @keyframes stat-glow-pulse {
+            0%, 100% { text-shadow: 0 0 40px rgba(196,130,42,0.35), 0 0 80px rgba(196,130,42,0.15); }
+            50%       { text-shadow: 0 0 60px rgba(196,130,42,0.7),  0 0 120px rgba(196,130,42,0.35); }
+        }
+        .stat-accent.pulsing {
+            animation: stat-glow-pulse 1.8s ease-in-out 3;
+        }
+
+        /* Horizontal ticker scroll */
+        .ticker-wrap {
+            overflow: hidden;
+            background: var(--dark);
+            padding: 14px 0;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+        .ticker-track {
+            display: flex;
+            gap: 0;
+            width: max-content;
+            animation: ticker-scroll 28s linear infinite;
+        }
+        .ticker-track:hover { animation-play-state: paused; }
+        .ticker-item {
+            white-space: nowrap;
+            font-size: 0.65rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.22);
+            padding: 0 48px;
+        }
+        .ticker-item span { color: var(--accent); margin-right: 12px; }
+        @keyframes ticker-scroll {
+            0%   { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* Timeline item — left border glow on hover */
+        .timeline-item {
+            transition: margin 0.3s ease, padding 0.3s ease, border-left-color 0.4s ease, box-shadow 0.4s ease;
+        }
+        .timeline-item:hover {
+            border-left-color: var(--accent) !important;
+            box-shadow: -4px 0 24px rgba(196,130,42,0.2);
+        }
     </style>
 </head>
 <body>
@@ -1624,6 +1781,7 @@
 <div class="cursor-dot" id="cursorDot"></div>
 <div class="cursor-ring" id="cursorRing"></div>
 <div class="noise-overlay"></div>
+<div class="spotlight" id="spotlight"></div>
 
 <!-- ══ NAV ═══════════════════════════════════════ -->
 <nav>
@@ -1641,22 +1799,22 @@
 <!-- ══ HERO ══════════════════════════════════════ -->
 <section id="hero">
     <div class="hero-left">
-        <div class="available-badge">
+        <div class="available-badge hero-reveal">
             <span class="available-dot"></span>
             Открыта к предложениям
         </div>
-        <div class="hero-overline">Product · Project · Customer Success</div>
-        <h1 class="hero-name">Вален&shy;тина<br><em>Шешу&shy;нова</em></h1>
-        <p class="hero-tagline">
+        <div class="hero-overline hero-reveal">Product · Project · Customer Success</div>
+        <h1 class="hero-name hero-reveal">Вален&shy;тина<br><em>Шешу&shy;нова</em></h1>
+        <p class="hero-tagline hero-reveal">
             Если у вашего продукта есть метрики — я сделаю их лучше.
             Если нет — построю с нуля и выведу на рост.
             8+ лет, 10+ продуктов, EdTech и AI.
         </p>
-        <div class="hero-roles">
+        <div class="hero-roles hero-reveal">
             <span class="role-tag">Product Manager</span>
             <span class="role-tag">Project Manager</span>
         </div>
-        <div class="hero-cta">
+        <div class="hero-cta hero-reveal">
             <a href="https://t.me/ValentinaMinakova" class="btn-primary" target="_blank">
                 → Написать в Telegram
             </a>
@@ -1666,12 +1824,7 @@
         </div>
     </div>
 
-    <div class="hero-right">
-        <!--
-            Чтобы добавить фото:
-            1. Сохраните фото как photo.jpg в эту же папку
-            2. Замените блок на: <img src="photo.jpg" alt="Валентина Шешунова">
-        -->
+    <div class="hero-right" id="heroRight">
         <div class="hero-photo-frame">
             <img src="фото2.jpg" alt="Валентина Шешунова">
         </div>
@@ -1758,6 +1911,32 @@
     <div class="stat-item">
         <div class="stat-number" data-count="8" data-suffix="+">8+</div>
         <div class="stat-label">лет опыта</div>
+    </div>
+</div>
+
+<!-- ══ TICKER ══════════════════════════════════════ -->
+<div class="ticker-wrap">
+    <div class="ticker-track">
+        <div class="ticker-item"><span>✦</span> Product Manager</div>
+        <div class="ticker-item"><span>✦</span> 8+ лет опыта</div>
+        <div class="ticker-item"><span>✦</span> NPS 98%</div>
+        <div class="ticker-item"><span>✦</span> Retention 80%</div>
+        <div class="ticker-item"><span>✦</span> 10+ продуктов запущено</div>
+        <div class="ticker-item"><span>✦</span> AI-продукты</div>
+        <div class="ticker-item"><span>✦</span> EdTech</div>
+        <div class="ticker-item"><span>✦</span> Project Manager</div>
+        <div class="ticker-item"><span>✦</span> Самара → Удалённо</div>
+        <div class="ticker-item"><span>✦</span> Data-driven</div>
+        <div class="ticker-item"><span>✦</span> Product Manager</div>
+        <div class="ticker-item"><span>✦</span> 8+ лет опыта</div>
+        <div class="ticker-item"><span>✦</span> NPS 98%</div>
+        <div class="ticker-item"><span>✦</span> Retention 80%</div>
+        <div class="ticker-item"><span>✦</span> 10+ продуктов запущено</div>
+        <div class="ticker-item"><span>✦</span> AI-продукты</div>
+        <div class="ticker-item"><span>✦</span> EdTech</div>
+        <div class="ticker-item"><span>✦</span> Project Manager</div>
+        <div class="ticker-item"><span>✦</span> Самара → Удалённо</div>
+        <div class="ticker-item"><span>✦</span> Data-driven</div>
     </div>
 </div>
 
@@ -2754,6 +2933,10 @@
             const ease = 1 - Math.pow(1 - p, 4);
             el.textContent = Math.round(to * ease) + suffix;
             if (p < 1) requestAnimationFrame(tick);
+            else if (el.classList.contains('stat-accent')) {
+                el.classList.add('pulsing');
+                setTimeout(() => el.classList.remove('pulsing'), 5500);
+            }
         };
         tick();
     };
@@ -2808,6 +2991,82 @@
             if (window.scrollY < 700)
                 heroLeft.style.transform = `translateY(${window.scrollY * 0.12}px)`;
         }, { passive: true });
+    }
+
+    /* ── Mouse spotlight ── */
+    const spotlight = document.getElementById('spotlight');
+    document.addEventListener('mousemove', e => {
+        const x = (e.clientX / window.innerWidth  * 100).toFixed(1) + '%';
+        const y = (e.clientY / window.innerHeight * 100).toFixed(1) + '%';
+        spotlight.style.setProperty('--mx', x);
+        spotlight.style.setProperty('--my', y);
+    });
+
+    /* ── Hero entrance stagger ── */
+    const heroItems = document.querySelectorAll('.hero-reveal');
+    heroItems.forEach((el, i) => {
+        setTimeout(() => el.classList.add('revealed'), 120 + i * 130);
+    });
+
+    /* ── Particles in hero right ── */
+    const heroRight = document.getElementById('heroRight');
+    if (heroRight) {
+        for (let i = 0; i < 22; i++) {
+            const p = document.createElement('div');
+            p.className = 'hero-particle';
+            const size = Math.random() * 3 + 1;
+            const dur  = Math.random() * 12 + 8;
+            const dx   = (Math.random() - 0.5) * 80;
+            p.style.cssText = `
+                width:${size}px; height:${size}px;
+                left:${Math.random()*100}%;
+                top:${Math.random()*100}%;
+                opacity:${Math.random()*0.5+0.1};
+                --dx:${dx}px;
+                animation-duration:${dur}s;
+                animation-delay:${-Math.random()*dur}s;
+            `;
+            heroRight.appendChild(p);
+        }
+    }
+
+    /* ── Click ripple ── */
+    document.addEventListener('click', e => {
+        if (e.target.closest('a, button')) return;
+        const r = document.createElement('div');
+        r.className = 'ripple-wave';
+        const size = 120;
+        r.style.cssText = `width:${size}px;height:${size}px;left:${e.clientX - size/2}px;top:${e.clientY - size/2}px;`;
+        document.body.appendChild(r);
+        setTimeout(() => r.remove(), 800);
+    });
+
+    /* ── Section numbers glow on scroll ── */
+    const numIo = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+            if (e.isIntersecting) {
+                e.target.classList.add('lit');
+                setTimeout(() => e.target.classList.remove('lit'), 1800);
+            }
+        });
+    }, { threshold: 0.5 });
+    document.querySelectorAll('.section-number').forEach(el => numIo.observe(el));
+
+
+    /* ── Hero photo parallax on mousemove ── */
+    const photoFrame = document.querySelector('.hero-photo-frame');
+    if (photoFrame && heroRight) {
+        heroRight.addEventListener('mousemove', e => {
+            const r = heroRight.getBoundingClientRect();
+            const x = (e.clientX - r.left) / r.width  - 0.5;
+            const y = (e.clientY - r.top)  / r.height - 0.5;
+            photoFrame.style.transform = `perspective(800px) rotateY(${x * 6}deg) rotateX(${-y * 4}deg) scale(1.02)`;
+            photoFrame.style.transition = 'transform 0.1s ease';
+        });
+        heroRight.addEventListener('mouseleave', () => {
+            photoFrame.style.transform = '';
+            photoFrame.style.transition = 'transform 0.6s ease';
+        });
     }
 </script>
 </body>
