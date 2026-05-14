@@ -1441,21 +1441,24 @@
             z-index: 9998;
             transform: translate(-50%, -50%);
             will-change: left, top;
+            opacity: 1;
         }
         .cursor-dot {
-            width: 7px;
-            height: 7px;
+            width: 8px;
+            height: 8px;
             background: var(--accent);
-            transition: transform 0.12s ease, opacity 0.2s;
+            box-shadow: 0 0 8px rgba(196,130,42,0.8);
+            transition: transform 0.12s ease;
         }
         .cursor-ring {
-            width: 36px;
-            height: 36px;
-            border: 1.5px solid rgba(196,130,42,0.35);
+            width: 38px;
+            height: 38px;
+            border: 2px solid rgba(196,130,42,0.75);
+            background: rgba(196,130,42,0.06);
             transition: width 0.35s ease, height 0.35s ease, border-color 0.35s ease;
         }
         .cursor-dot.is-hovering { transform: translate(-50%, -50%) scale(0); }
-        .cursor-ring.is-hovering { width: 58px; height: 58px; border-color: rgba(196,130,42,0.65); }
+        .cursor-ring.is-hovering { width: 60px; height: 60px; border-color: var(--accent); background: rgba(196,130,42,0.1); }
         @media (hover: none) { .cursor-dot, .cursor-ring { display: none; } }
 
         /* Noise texture overlay */
@@ -1656,20 +1659,6 @@
             to { transform: rotate(360deg); }
         }
 
-        /* Hero particles */
-        .hero-particle {
-            position: absolute;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.55);
-            pointer-events: none;
-            animation: particle-drift linear infinite;
-        }
-        @keyframes particle-drift {
-            0%   { transform: translateY(0)   translateX(0)   scale(1);   opacity: 0; }
-            10%  { opacity: 1; }
-            90%  { opacity: 0.6; }
-            100% { transform: translateY(-100vh) translateX(var(--dx,20px)) scale(0.4); opacity: 0; }
-        }
 
         /* Card shine sweep */
         .case-card, .whyme-card, .process-step {
@@ -2887,19 +2876,20 @@
     /* ── Custom cursor ── */
     const dot  = document.getElementById('cursorDot');
     const ring = document.getElementById('cursorRing');
-    let mx = -100, my = -100, rx = -100, ry = -100;
-    let cursorVisible = false;
+    let mx = window.innerWidth / 2, my = window.innerHeight / 2;
+    let rx = mx, ry = my;
+
+    dot.style.left = mx + 'px'; dot.style.top = my + 'px';
 
     document.addEventListener('mousemove', e => {
         mx = e.clientX; my = e.clientY;
-        if (!cursorVisible) {
-            dot.style.opacity = '1'; ring.style.opacity = '1';
-            cursorVisible = true;
-        }
         dot.style.left = mx + 'px'; dot.style.top = my + 'px';
     });
     document.addEventListener('mouseleave', () => {
         dot.style.opacity = '0'; ring.style.opacity = '0';
+    });
+    document.addEventListener('mouseenter', () => {
+        dot.style.opacity = '1'; ring.style.opacity = '1';
     });
 
     (function animateRing() {
@@ -3008,27 +2998,7 @@
         setTimeout(() => el.classList.add('revealed'), 120 + i * 130);
     });
 
-    /* ── Particles in hero right ── */
     const heroRight = document.getElementById('heroRight');
-    if (heroRight) {
-        for (let i = 0; i < 22; i++) {
-            const p = document.createElement('div');
-            p.className = 'hero-particle';
-            const size = Math.random() * 3 + 1;
-            const dur  = Math.random() * 12 + 8;
-            const dx   = (Math.random() - 0.5) * 80;
-            p.style.cssText = `
-                width:${size}px; height:${size}px;
-                left:${Math.random()*100}%;
-                top:${Math.random()*100}%;
-                opacity:${Math.random()*0.5+0.1};
-                --dx:${dx}px;
-                animation-duration:${dur}s;
-                animation-delay:${-Math.random()*dur}s;
-            `;
-            heroRight.appendChild(p);
-        }
-    }
 
     /* ── Click ripple ── */
     document.addEventListener('click', e => {
