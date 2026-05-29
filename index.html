@@ -1712,6 +1712,11 @@
             .companies-label { border-right: none; padding-right: 0; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 12px; width: 100%; }
             .companies-list { flex-wrap: wrap; gap: 0; width: 100%; }
             .logo-item { flex: none; width: 50%; border-bottom: 1px solid rgba(255,255,255,0.05); justify-content: flex-start; padding: 16px 20px; }
+            /* ROI strip: убираем nowrap на планшете */
+            .roi-text { white-space: normal; }
+            .roi-inner { grid-template-columns: 1fr; gap: 20px; }
+            /* CJM: обеспечиваем горизонтальный скролл */
+            .cjm-stages { overflow-x: auto; -webkit-overflow-scrolling: touch; }
         }
 
         @media (max-width: 640px) {
