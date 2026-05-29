@@ -1723,6 +1723,8 @@
 
         @media (max-width: 640px) {
             body, html { overflow-x: hidden; }
+            /* Все секции — не шире viewport */
+            section, .section, .whyme-section { max-width: 100vw; overflow-x: hidden; }
             nav { padding: 16px 24px; }
             .nav-top-row { display: flex; justify-content: space-between; align-items: center; width: 100%; }
             .nav-burger { display: flex; color: var(--stone, #b0a898); }
