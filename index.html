@@ -3,30 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Валентина Шешунова — Product Manager</title>
-    <meta name="description" content="Product Manager 8+ лет. NPS 98%, Retention 80%, 10+ продуктов запущено. Беру на себя головную боль собственника — превращаю продукт в точку роста бизнеса.">
+    <title>Валентина Шешунова — Project Manager</title>
+    <meta name="description" content="Project Manager 8+ лет. 5+ AI-проектов в срок. 20+ регионов в синхроне. Беру на себя хаос — выстраиваю систему с понятными дедлайнами, RACI и прозрачными статусами.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@1,400;1,600;1,700&family=Inter:wght@200;300;400;500;600&display=swap" rel="stylesheet">
     <style>
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
-            --bg:          #EDE8DF;   /* Phantom Beige */
-            --bg-light:    #F4F0E8;   /* Hog Bristle Quarter */
-            --bg-mid:      #E3DDD2;   /* Puddle */
-            --dark:        #1E1B16;   /* deep warm black */
-            --panel:       #363642;   /* Ticking – dark charcoal */
-            --accent:      #C4822A;   /* Condiment – amber */
-            --accent-soft: #F5EBD8;
-            --coffee:      #8B6344;   /* Coffee Dust */
-            --stone:       #9A9186;   /* Stone Master */
-            --border:      #D4CEC3;
-            --gray-400:    #A89880;
-            --gray-500:    #7A6D5C;
-            --gray-700:    #4A3F30;
-            --serif:       'Playfair Display', Georgia, serif;
-            --sans:        'Inter', -apple-system, sans-serif;
+            --bg:          #12141E;   /* глубокий navy */
+            --bg-light:    #181C28;   /* navy карточки */
+            --bg-mid:      #1E2232;   /* navy средний */
+            --dark:        #0A0C14;   /* самый тёмный */
+            --panel:       #0E1020;   /* тёмная панель */
+            --accent:      #D4882A;   /* золото — главный акцент */
+            --accent-bright:#F0A030;  /* яркое золото */
+            --accent-soft: rgba(212,136,42,0.12);
+            --coffee:      #B8720A;   /* тёмное золото */
+            --green:       #2D6040;   /* лесной зелёный (вторичный) */
+            --green-neon:  #5BAA78;   /* насыщенный зелёный */
+            --green-mid:   #4A9965;   /* приглушённый зелёный акцент */
+            --green-glow:  rgba(91,170,120,0.15);
+            --brick:       #0E0A06;   /* фон кирпича */
+            --stone:       #7A7268;
+            --border:      rgba(212,136,42,0.14);
+            --border-dim:  rgba(255,255,255,0.06);
+            --gray-400:    #8A8278;
+            --gray-500:    #B4ACA0;
+            --gray-700:    #E8E0D4;
+            --serif:       'Oswald', sans-serif;
+            --sans:        'Inter', sans-serif;
         }
 
         html { scroll-behavior: smooth; }
@@ -34,13 +41,10 @@
         body {
             font-family: var(--sans);
             background: var(--bg);
-            color: var(--dark);
-            overflow-x: hidden;
+            color: var(--gray-700);
+            overflow-x: clip;
             -webkit-font-smoothing: antialiased;
-            cursor: none;
         }
-        a, button { cursor: none; }
-        input, textarea, select { cursor: text; }
 
         /* ─── NAV ─────────────────────────── */
         nav {
@@ -95,10 +99,12 @@
 
         /* ─── HERO ────────────────────────── */
         #hero {
-            min-height: 100vh;
+            min-height: 88vh;
             display: grid;
             grid-template-columns: 1fr 1fr;
             padding-top: 57px;
+            position: relative;
+            overflow: hidden;
         }
 
         .hero-left {
@@ -106,7 +112,8 @@
             flex-direction: column;
             justify-content: center;
             padding: 80px 64px;
-            border-right: 1px solid var(--border);
+            position: relative;
+            z-index: 2;
         }
 
         .hero-overline {
@@ -120,18 +127,20 @@
 
         .hero-name {
             font-family: var(--serif);
-            font-size: clamp(3rem, 5.5vw, 6.5rem);
-            font-weight: 900;
+            font-size: clamp(3rem, 5.5vw, 7rem);
+            font-weight: 700;
+            font-style: normal;
+            text-transform: uppercase;
             line-height: 0.92;
-            letter-spacing: -0.025em;
+            letter-spacing: 0.04em;
             margin-bottom: 32px;
             padding-bottom: 0.1em;
-            background: linear-gradient(145deg, #363642 0%, #363642 38%, #7a4818 72%, var(--accent) 100%);
+            background: linear-gradient(145deg, #E8E0D0 0%, #D8CEB8 40%, var(--accent) 75%, var(--accent-bright) 100%);
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        .hero-name em { font-style: italic; -webkit-text-fill-color: transparent; }
+        .hero-name em { font-family: var(--sans); font-style: normal; font-weight: 200; letter-spacing: 0.22em; text-transform: uppercase; -webkit-text-fill-color: transparent; }
 
         .hero-tagline {
             font-size: clamp(1rem, 1.4vw, 1.2rem);
@@ -199,24 +208,15 @@
         .btn-secondary:hover { background: var(--dark); color: #fff; }
 
         .hero-right {
-            background: var(--panel);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 80px 64px;
             position: relative;
             overflow: hidden;
+            z-index: 1;
         }
 
         .hero-photo-frame {
-            width: 100%;
-            max-width: 360px;
-            aspect-ratio: 3/4;
-            position: relative;
-            z-index: 1;
-            outline: 1px solid rgba(255,255,255,0.07);
-            outline-offset: 12px;
+            position: absolute;
+            inset: 0;
+            z-index: 0;
             overflow: hidden;
         }
 
@@ -226,6 +226,16 @@
             object-fit: cover;
             object-position: top center;
             display: block;
+        }
+
+        /* Gradient fade на фото */
+        .hero-photo-frame::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(90deg, var(--bg) 0%, rgba(18,20,30,0.3) 25%, transparent 60%),
+                linear-gradient(180deg, rgba(18,20,30,0.4) 0%, transparent 20%, transparent 75%, rgba(18,20,30,0.8) 100%);
         }
 
         .hero-photo-placeholder {
@@ -329,7 +339,7 @@
 
         /* ─── SECTIONS ────────────────────── */
         .section { padding: 112px 64px; }
-        .section-inner { max-width: 1200px; margin: 0 auto; }
+        .section-inner { max-width: 1400px; margin: 0 auto; width: 100%; }
 
         .section-header {
             display: flex;
@@ -407,8 +417,9 @@
         }
 
         .roi-inner {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
+            width: 100%;
             display: grid;
             grid-template-columns: auto 1fr;
             gap: 48px;
@@ -1191,8 +1202,9 @@
         .companies-strip::after  { right: 0; background: linear-gradient(-90deg, var(--dark), transparent); }
 
         .companies-inner {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
+            width: 100%;
             display: flex;
             align-items: center;
             gap: 0;
@@ -1321,8 +1333,9 @@
         }
 
         .artifact-inner {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
+            width: 100%;
             display: grid;
             grid-template-columns: 1fr 1.6fr;
             gap: 80px;
@@ -1425,6 +1438,49 @@
         .sticky-tg:hover { background: #1a9bde; box-shadow: 0 6px 28px rgba(42,171,238,0.45); transform: translateY(-2px); }
 
         .sticky-tg svg { width: 18px; height: 18px; flex-shrink: 0; }
+
+        .hero-left { position: relative; z-index: 2; }
+
+        /* ─── RESPONSE TIMER ──────────────────── */
+        .response-timer {
+            display: inline-flex;
+            align-items: center;
+            gap: 16px;
+            background: rgba(212,136,42,0.06);
+            border: 1px solid rgba(212,136,42,0.18);
+            border-radius: 4px;
+            padding: 14px 22px;
+            margin-bottom: 36px;
+        }
+        .rt-icon {
+            font-size: 1.3rem;
+            animation: rt-tick 1s steps(1) infinite;
+        }
+        @keyframes rt-tick {
+            0%, 49% { opacity: 1; }
+            50%, 100% { opacity: 0.35; }
+        }
+        .rt-text {
+            font-size: 0.72rem;
+            letter-spacing: 0.06em;
+            color: rgba(228,220,210,0.45);
+            text-transform: uppercase;
+        }
+        .rt-time {
+            font-family: 'Courier New', monospace;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--accent);
+            letter-spacing: 0.05em;
+            min-width: 80px;
+        }
+        .rt-label {
+            font-size: 0.62rem;
+            letter-spacing: 0.1em;
+            color: rgba(212,136,42,0.4);
+            text-transform: uppercase;
+            margin-top: 2px;
+        }
 
         /* ─── ANIMATIONS ──────────────────── */
         .fade-in {
@@ -1599,6 +1655,34 @@
             50%, 100% { transform: translateX(200%); }
         }
 
+        /* ─── BURGER MENU ─────────────────── */
+        /* На десктопе nav-top-row не создаёт flex-item — дети видны как прямые потомки nav */
+        .nav-top-row { display: contents; }
+
+        .nav-burger {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            gap: 5px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 8px;
+            z-index: 1100;
+            color: inherit;
+        }
+        .nav-burger span {
+            display: block;
+            width: 22px;
+            height: 2px;
+            background: currentColor;
+            border-radius: 2px;
+            transition: transform 0.3s ease, opacity 0.2s ease;
+        }
+        .nav-burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+        .nav-burger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+        .nav-burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
         /* ─── RESPONSIVE ──────────────────── */
         @media (max-width: 1100px) {
             /* CJM на планшете — скролл */
@@ -1631,8 +1715,39 @@
         }
 
         @media (max-width: 640px) {
+            body, html { overflow-x: hidden; }
             nav { padding: 16px 24px; }
+            .nav-top-row { display: flex; justify-content: space-between; align-items: center; width: 100%; }
+            .nav-burger { display: flex; color: var(--stone, #b0a898); }
             .nav-links { display: none; }
+
+            /* Nav расширяется до full-screen при открытии */
+            nav.nav-open {
+                height: 100dvh;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: stretch;
+                background: rgba(14,16,32,0.98) !important;
+                backdrop-filter: blur(24px) !important;
+                -webkit-backdrop-filter: blur(24px) !important;
+            }
+            nav.nav-open .nav-top-row {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                width: 100%;
+            }
+            nav.nav-open .nav-links {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 36px;
+                flex: 1;
+                width: 100%;
+            }
+            nav.nav-open .nav-links a { font-size: 1.2rem; letter-spacing: 0.04em; color: #e8e2da; }
+            nav.nav-open .nav-cta { padding: 14px 32px !important; font-size: 1rem !important; }
             .hero-left { padding: 88px 24px 48px; }
             .hero-right { padding: 40px 24px; min-height: 70vw; }
             .section { padding: 64px 24px; }
@@ -2069,19 +2184,548 @@
             border-left-color: var(--accent) !important;
             box-shadow: -4px 0 24px rgba(196,130,42,0.2);
         }
+
+        /* ══ LOFT PREMIUM — NAVY · GOLD · BRICK ══════════════════════ */
+
+        /* ─── BRICK TEXTURE (только на двух блоках) ─── */
+        .tex-concrete {
+            background-image:
+                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='c'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.68' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.09 0 0 0 0 0.08 0 0 0 0 0.05 0 0 0 0.65 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23c)'/%3E%3C/svg%3E"),
+                linear-gradient(160deg, #151310 0%, #1A1814 50%, #141210 100%);
+            background-size: 400px 400px, cover;
+        }
+        /* Дерево: вертикальные прожилки тёплого ореха */
+        .tex-wood {
+            background-image:
+                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='600'%3E%3Cfilter id='w'%3E%3CfeTurbulence type='turbulence' baseFrequency='0.009 0.22' numOctaves='4' seed='7' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.18 0 0 0 0 0.09 0 0 0 0 0.02 0 0 0 0.7 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23w)'/%3E%3C/svg%3E"),
+                linear-gradient(180deg, #18100A 0%, #1E1409 50%, #18100A 100%);
+            background-size: 600px 600px, cover;
+        }
+        /* Джунгли: органическая зелень */
+        .tex-jungle {
+            background-image:
+                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='500' height='500'%3E%3Cfilter id='l'%3E%3CfeTurbulence type='turbulence' baseFrequency='0.018' numOctaves='5' seed='3'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.03 0.05 0 0 0 0.16 0 0 0 0 0.05 0 0 0 0.85 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23l)'/%3E%3C/svg%3E"),
+                linear-gradient(135deg, #081408 0%, #0C1C0C 50%, #081408 100%);
+            background-size: 500px 500px, cover;
+        }
+
+        /* ГЛОБАЛ */
+        body { background-color: var(--bg); color: var(--gray-700); }
+        .noise-overlay { opacity: 0.03; }
+
+        /* ─── HERO RIGHT + WHYME — единый фон ─── */
+        #hero {
+            background:
+                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpath d='M 60 0 L 0 0 0 60' fill='none' stroke='rgba(212,136,42,0.05)' stroke-width='0.5'/%3E%3C/svg%3E"),
+                radial-gradient(ellipse at 75% 90%, rgba(212,136,42,0.07) 0%, transparent 45%),
+                radial-gradient(ellipse at 85% 15%, rgba(20,30,70,0.5) 0%, transparent 40%),
+                var(--bg) !important;
+            background-size: 60px 60px, cover, cover, auto !important;
+        }
+        .hero-right {
+            background: transparent !important;
+        }
+        .hero-right::before, .hero-right::after { display: none; }
+
+        /* WhyMe */
+        .whyme-section {
+            background-color: #0D0F1C !important;
+            background-image:
+                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpath d='M 60 0 L 0 0 0 60' fill='none' stroke='rgba(212,136,42,0.05)' stroke-width='0.5'/%3E%3C/svg%3E") !important;
+            background-size: 60px 60px !important;
+        }
+
+        /* ─── NAV ─── */
+        nav { background: rgba(14,16,32,0.97) !important; border-bottom-color: rgba(212,136,42,0.1) !important; }
+        nav.is-scrolled { background: rgba(14,16,32,0.88) !important; backdrop-filter: blur(28px) saturate(180%); border-bottom-color: rgba(212,136,42,0.2) !important; }
+        .nav-logo { color: var(--gray-700); letter-spacing: 0.08em; font-family: var(--serif); font-weight: 600; text-transform: uppercase; }
+        .nav-links a { color: var(--stone); }
+        .nav-links a:hover { color: var(--gray-700); }
+        .nav-cta { background: var(--accent) !important; color: #fff !important; }
+        .nav-cta:hover { background: var(--accent-bright) !important; }
+
+        /* ─── HERO ─── */
+        #hero { background: var(--bg); }
+        .hero-left { border-right: none !important; }
+        .hero-overline { color: var(--accent); letter-spacing: 0.22em; font-family: var(--sans); font-weight: 500; }
+        .hero-tagline { color: var(--gray-500); border-left-color: var(--accent) !important; }
+        .role-tag { color: var(--stone); border-color: rgba(212,136,42,0.2); background: rgba(212,136,42,0.05); letter-spacing: 0.08em; font-family: var(--serif); }
+        /* Available badge — яркий неоновый зелёный */
+        .available-badge {
+            background: rgba(34,197,94,0.08) !important;
+            border-color: rgba(91,170,120,0.3) !important;
+            color: var(--green-neon) !important;
+            box-shadow: 0 0 16px rgba(91,170,120,0.12), inset 0 0 12px rgba(91,170,120,0.04);
+        }
+        .available-dot { background: var(--green-neon) !important; box-shadow: 0 0 10px var(--green-neon), 0 0 20px rgba(91,170,120,0.5) !important; }
+        @keyframes badge-pulse { 0%,100%{box-shadow:0 0 0 0 rgba(91,170,120,0.6);}60%{box-shadow:0 0 0 10px rgba(91,170,120,0);} }
+
+        /* ─── LED — золотая полоска подсветки ─── */
+        #stats { position: relative; background: var(--dark) !important; }
+        #stats::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; height: 2px;
+            background: linear-gradient(90deg, transparent 0%, rgba(212,136,42,0.5) 20%, rgba(240,160,48,1) 50%, rgba(212,136,42,0.5) 80%, transparent 100%);
+            box-shadow: 0 0 16px 4px rgba(212,136,42,0.3), 0 0 50px 12px rgba(212,136,42,0.1);
+            z-index: 3;
+        }
+        .stat-number { font-family: var(--serif); font-weight: 700; letter-spacing: 0.02em; color: var(--gray-700); }
+        .stat-accent { color: var(--accent) !important; text-shadow: 0 0 30px rgba(212,136,42,0.55), 0 0 70px rgba(212,136,42,0.2); }
+        /* Зелёный акцент на цифрах 20+ и 10+ */
+        .stat-item:nth-child(2) .stat-number,
+        .stat-item:nth-child(3) .stat-number {
+            color: var(--green-neon) !important;
+            text-shadow: 0 0 24px rgba(91,170,120,0.5), 0 0 60px rgba(91,170,120,0.2) !important;
+        }
+        .stat-label { color: var(--stone); letter-spacing: 0.15em; font-size: 0.58rem; }
+        .stat-benchmark { color: rgba(91,170,120,0.45); }
+        .stat-item { border-right-color: rgba(255,255,255,0.04) !important; }
+
+        /* ─── TICKER ─── */
+        .ticker-wrap { background: var(--dark) !important; border-top-color: rgba(91,170,120,0.06) !important; }
+        .ticker-item { color: rgba(228,220,210,0.18); }
+        /* Чередуем: нечётные — золото, чётные — зелёный */
+        .ticker-item:nth-child(odd) span { color: var(--accent); }
+        .ticker-item:nth-child(even) span { color: var(--green-neon); }
+
+        /* ─── NEON SECTION DIVIDERS ─── */
+        /* Зелёная линия перед секцией кейсов */
+        #pain { position: relative; }
+        #pain::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 10%; right: 10%; height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(91,170,120,0.5) 30%, rgba(91,170,120,0.8) 50%, rgba(91,170,120,0.5) 70%, transparent);
+            box-shadow: 0 0 12px 2px rgba(91,170,120,0.25), 0 0 40px 8px rgba(91,170,120,0.08);
+        }
+        /* Золотая линия перед секцией опыта */
+        #experience { position: relative; }
+        #experience::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 10%; right: 10%; height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(212,136,42,0.5) 30%, rgba(240,160,48,0.9) 50%, rgba(212,136,42,0.5) 70%, transparent);
+            box-shadow: 0 0 12px 2px rgba(212,136,42,0.3), 0 0 40px 8px rgba(212,136,42,0.1);
+        }
+        /* Зелёная — перед отзывами */
+        #testimonials { position: relative; }
+        #testimonials::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 20%; right: 20%; height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(91,170,120,0.4) 30%, rgba(91,170,120,0.7) 50%, rgba(91,170,120,0.4) 70%, transparent);
+            box-shadow: 0 0 10px 2px rgba(91,170,120,0.2), 0 0 30px 6px rgba(91,170,120,0.07);
+        }
+
+        /* ─── SECTION TITLES ─── */
+        .section-title { color: var(--gray-700) !important; font-family: var(--serif); font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; border-bottom-color: var(--accent) !important; font-size: clamp(1.6rem, 2.5vw, 2.4rem) !important; }
+        /* Нечётные секции — зелёный номер, чётные — золото */
+        .section-number { color: rgba(212,136,42,0.18) !important; font-family: var(--serif); font-weight: 700; font-style: normal; font-size: 5.5rem; }
+        .section-number.lit { color: rgba(212,136,42,0.45) !important; text-shadow: 0 0 50px rgba(212,136,42,0.3); }
+        #about .section-number,
+        #pain .section-number,
+        #expertise .section-number { color: rgba(91,170,120,0.18) !important; }
+        #about .section-number.lit,
+        #pain .section-number.lit,
+        #expertise .section-number.lit { color: rgba(91,170,120,0.45) !important; text-shadow: 0 0 50px rgba(91,170,120,0.25) !important; }
+
+        /* ─── ABOUT ─── */
+        #about { background: var(--bg-light) !important; border-top-color: rgba(212,136,42,0.08) !important; }
+        .about-quote { color: var(--gray-700); font-family: 'Cormorant Garamond', Georgia, serif; font-style: italic; font-size: clamp(1.35rem, 2.2vw, 1.9rem); line-height: 1.5; }
+        .about-quote em { color: var(--accent); }
+        .about-text p { color: var(--gray-500); }
+        .diff-text { color: var(--gray-500); }
+        /* Точки в About — зелёные */
+        .diff-dot { background: var(--green-neon); box-shadow: 0 0 6px rgba(91,170,120,0.5); }
+
+        /* ─── PROCESS ─── */
+        #process { background: var(--bg) !important; border-top-color: rgba(212,136,42,0.08) !important; }
+        .process-steps { background: rgba(212,136,42,0.06) !important; }
+        .process-step { background: var(--bg-light) !important; position: relative; }
+        .process-step::before { content:''; position:absolute; top:0; left:20%; right:20%; height:1px; background:linear-gradient(90deg,transparent,rgba(212,136,42,0.3),transparent); }
+        .process-step:hover { background: var(--bg-mid) !important; box-shadow: 0 -2px 20px rgba(212,136,42,0.08); }
+        .step-number { color: rgba(91,170,120,0.15); font-family: var(--serif); font-weight: 700; font-size: 3.5rem; }
+        /* Чётные шаги процесса — зелёные, нечётные — золото */
+        .process-step:nth-child(even) .step-number { color: rgba(212,136,42,0.15); }
+        .process-step:nth-child(even) .step-phase { color: var(--accent); }
+        .step-phase { color: var(--green-neon); font-weight: 600; letter-spacing: 0.12em; opacity: 0.8; }
+        .step-title { color: var(--gray-700); font-family: var(--serif); font-weight: 700; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 0.04em; }
+        .step-desc { color: var(--gray-500); }
+        .step-timing { background: rgba(212,136,42,0.08); color: var(--accent); border: 1px solid rgba(212,136,42,0.15); font-weight: 600; }
+
+        /* ─── ROI STRIP ─── */
+        .roi-strip { background: var(--dark) !important; border-top: 2px solid rgba(212,136,42,0.25) !important; border-bottom: 2px solid rgba(212,136,42,0.25) !important; position: relative; }
+        .roi-strip::before { content:''; position:absolute; top:0;left:0;right:0;height:2px; background:linear-gradient(90deg,transparent,rgba(240,160,48,0.8),transparent); box-shadow:0 0 20px rgba(212,136,42,0.3); }
+        .roi-text { color: var(--gray-700) !important; font-family: var(--serif); font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; }
+        .roi-text em { color: var(--accent) !important; font-style: italic; text-transform: none; }
+        .roi-sub { color: var(--gray-500) !important; }
+
+        /* ─── CASES (кейсы — на тёмном navy, с золотыми деталями) ─── */
+        #pain { background: var(--bg) !important; border-top-color: rgba(212,136,42,0.08) !important; }
+        .pain-intro { color: var(--gray-500); }
+        .pain-intro strong { color: var(--gray-700); }
+        .cases-grid { background: rgba(212,136,42,0.08) !important; }
+        .case-card {
+            background: var(--bg-light) !important;
+            border-top: 2px solid rgba(212,136,42,0.12) !important;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.5s ease, box-shadow 0.5s ease, border-top-color 0.3s !important;
+        }
+        .case-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 10%; right: 10%; height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(212,136,42,0.5), transparent);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .case-card:hover { background: var(--bg-mid) !important; border-top-color: rgba(212,136,42,0.45) !important; box-shadow: 0 -4px 30px rgba(212,136,42,0.12), 0 20px 60px rgba(0,0,0,0.3) !important; }
+        .case-card:hover::before { opacity: 1; }
+        /* Кейсы: теги чередуются золото/зелень */
+        .case-card:nth-child(odd)  .case-tag { background: rgba(91,170,120,0.08); color: var(--green-mid); border: 1px solid rgba(91,170,120,0.22); font-weight: 700; }
+        .case-card:nth-child(even) .case-tag { background: rgba(212,136,42,0.1); color: var(--accent); border: 1px solid rgba(212,136,42,0.25); font-weight: 700; }
+        .case-pain { color: var(--gray-700); font-family: var(--serif); font-size: 1.15rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.02em; font-style: normal; line-height: 1.25; }
+        .case-situation { color: var(--stone); font-style: italic; }
+        .case-solution { color: var(--gray-500); }
+        .case-result { border-top-color: rgba(212,136,42,0.12) !important; }
+        .case-metric-num { color: var(--accent); font-family: var(--serif); font-weight: 700; }
+        .case-metric-label { color: var(--stone); }
+
+        /* ─── WHY ME (кирпич + dark navy карточки) ─── */
+        .whyme-section .section-title { color: var(--gray-700) !important; }
+        .whyme-section .section-sub { color: var(--stone); }
+        .whyme-grid { background: rgba(0,0,0,0.25) !important; }
+        .whyme-card {
+            background: rgba(18,20,30,0.92) !important;
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(212,136,42,0.1) !important;
+        }
+        .whyme-card:hover { background: rgba(24,28,40,0.95) !important; border-color: rgba(212,136,42,0.25) !important; }
+        .whyme-icon { color: var(--accent); font-family: var(--serif); font-size: 2rem; font-weight: 700; }
+        .whyme-trigger { color: var(--gray-700); font-family: var(--serif); font-size: clamp(1.1rem,1.5vw,1.4rem); font-weight: 700; text-transform: uppercase; letter-spacing: 0.03em; }
+        .whyme-proof { color: rgba(180,172,160,0.5); font-size: 0.88rem; }
+
+        /* LED акцентная карточка */
+        .whyme-card--accent {
+            background: rgba(30,24,12,0.95) !important;
+            border: 1px solid rgba(212,136,42,0.3) !important;
+            position: relative; overflow: hidden;
+        }
+        .whyme-card--accent::before {
+            content: ''; position: absolute;
+            top: 0; left: 5%; right: 5%; height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(240,160,48,1), transparent);
+            box-shadow: 0 0 15px 4px rgba(212,136,42,0.5), 0 0 50px 12px rgba(212,136,42,0.18);
+            z-index: 2;
+        }
+        .whyme-card--accent:hover { box-shadow: 0 0 50px rgba(212,136,42,0.15) !important; }
+        .whyme-card--accent .whyme-icon, .whyme-card--accent .whyme-trigger, .whyme-card--accent .whyme-proof { color: inherit; }
+        .whyme-card--accent .whyme-icon { color: var(--accent-bright); }
+        .whyme-card--accent .whyme-trigger { color: var(--gray-700); }
+        .whyme-card--accent .whyme-proof { color: rgba(180,172,160,0.5); }
+        .whyme-card--dark { background: rgba(10,12,20,0.95) !important; }
+        .whyme-bottom { border-top-color: rgba(212,136,42,0.1) !important; }
+        .whyme-bottom-text { color: var(--stone); }
+        .whyme-bottom-text strong { color: var(--gray-700); }
+        .whyme-cta { background: var(--accent) !important; }
+        .whyme-cta:hover { background: var(--accent-bright) !important; }
+
+        /* ─── EXPERTISE ─── */
+        #expertise { background: var(--panel) !important; }
+        .expertise-grid { background: rgba(212,136,42,0.06) !important; }
+        .expertise-card { background: var(--panel) !important; border-top: 2px solid rgba(212,136,42,0.08); position: relative; }
+        .expertise-card::before { content:''; position:absolute; top:0;left:20%;right:20%;height:1px; background:linear-gradient(90deg,transparent,rgba(212,136,42,0.4),transparent); opacity:0; transition:opacity 0.3s; }
+        .expertise-card:hover { background: var(--bg-light) !important; border-top-color: rgba(212,136,42,0.3); }
+        .expertise-card:hover::before { opacity: 1; }
+        /* Экспертиза: иконки и подзаголовки — зелёные */
+        .exp-icon { color: var(--green-mid); opacity: 0.75; }
+        .exp-title { color: var(--gray-700); font-family: var(--serif); font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; font-size: 1.25rem; }
+        .exp-sub { color: var(--green-mid); letter-spacing: 0.14em; font-size: 0.58rem; opacity: 0.7; }
+        .exp-list li { color: rgba(180,172,160,0.45); }
+        .exp-list li::before { background: var(--accent); }
+
+        /* ─── EXPERIENCE ─── */
+        #experience { background: var(--bg-light) !important; border-top-color: rgba(212,136,42,0.08) !important; }
+        .tl-company { color: var(--gray-700); font-family: var(--serif); font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; }
+        .tl-period { color: var(--stone); font-size: 0.68rem; letter-spacing: 0.05em; }
+        /* Индустрия в опыте — зелёная */
+        .tl-industry { color: var(--green-mid); letter-spacing: 0.12em; opacity: 0.85; }
+        .tl-role { color: var(--gray-700); font-family: var(--serif); font-size: 1.2rem; font-weight: 700; }
+        .tl-desc { color: var(--gray-500); }
+        .timeline-item { border-top-color: rgba(212,136,42,0.08) !important; }
+        .timeline-item:hover { background: var(--bg-mid) !important; border-left-color: var(--accent) !important; box-shadow: -4px 0 24px rgba(212,136,42,0.2) !important; }
+        .res-num { color: var(--accent); font-family: var(--serif); font-weight: 700; }
+        .res-label { color: var(--stone); }
+
+        /* ─── TESTIMONIALS ─── */
+        #testimonials { background: var(--bg) !important; border-top-color: rgba(212,136,42,0.08) !important; }
+        .test-grid { gap: 24px; }
+        .test-card {
+            background: var(--bg-light) !important;
+            border: 1px solid rgba(212,136,42,0.1) !important;
+            position: relative;
+        }
+        .test-card::before { content:''; position:absolute; top:0;left:15%;right:15%;height:1px; background:linear-gradient(90deg,transparent,rgba(212,136,42,0.4),transparent); }
+        .test-card:hover { border-color: rgba(212,136,42,0.3) !important; box-shadow: 0 -4px 24px rgba(212,136,42,0.1), 0 10px 40px rgba(0,0,0,0.4); }
+        .test-quote-mark { color: var(--accent); opacity: 0.5; }
+        .test-text { color: var(--gray-500); font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1rem; line-height: 1.85; }
+        .test-name { color: var(--gray-700); font-family: var(--serif); font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.82rem; }
+        .test-role { color: var(--stone); }
+
+        /* ─── FAQ ─── */
+        #faq { background: var(--bg-light) !important; border-top-color: rgba(212,136,42,0.08) !important; }
+        .faq-grid { background: rgba(212,136,42,0.06) !important; }
+        .faq-item { background: var(--bg-light) !important; }
+        .faq-item:hover { background: var(--bg-mid) !important; }
+        .faq-q { color: var(--gray-700); font-family: var(--serif); font-weight: 700; text-transform: uppercase; letter-spacing: 0.03em; font-size: 1rem; }
+        .faq-a { color: var(--gray-500); }
+        .faq-a strong { color: var(--gray-700); }
+
+        /* ─── PLAN 90 ─── */
+        .plan90-section { background: var(--dark) !important; }
+        .plan90-section .section-title { color: var(--gray-700) !important; }
+        .phase-badge { color: var(--accent); }
+        .phase-badge--mid { color: rgba(212,136,42,0.45); }
+        .phase-badge--end { color: rgba(212,136,42,0.2); }
+        .phase-name { color: var(--gray-700); font-family: var(--serif); font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; }
+        .phase-list li { color: rgba(180,172,160,0.4); }
+        .phase-list li::before { color: var(--accent); }
+        .phase-result { background: rgba(212,136,42,0.06); border-left-color: var(--accent); }
+        .phase-result-label { color: var(--accent); }
+
+        /* ─── NOT FIT ─── */
+        .notfit-strip { background: #060810 !important; }
+        .notfit-title { color: rgba(228,220,210,0.2); font-family: var(--serif); font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; }
+        .notfit-item { background: rgba(212,136,42,0.04); color: rgba(180,172,160,0.32); border: 1px solid rgba(212,136,42,0.06); }
+        .notfit-x { color: rgba(212,136,42,0.4); }
+        .notfit-footer strong { color: rgba(228,220,210,0.5); }
+
+        /* ─── DIAGNOSTICS ─── */
+        #diagnostics { background: var(--panel) !important; }
+        /* Диагностика — зелёный надзаголовок */
+        .diag-overline { color: var(--green-mid); letter-spacing: 0.2em; opacity: 0.9; }
+        .diag-title { color: var(--gray-700); font-family: var(--serif); font-weight: 700; text-transform: uppercase; }
+        .diag-desc { color: var(--stone); }
+        .diag-list li { color: var(--gray-500); }
+        .diag-check { border-color: var(--accent); }
+        .diag-check::after { color: var(--accent); }
+
+        /* ─── CONTACT ─── */
+        #contact { background: var(--dark) !important; }
+        .contact-title { color: var(--gray-700); font-family: var(--serif); font-weight: 700; text-transform: uppercase; letter-spacing: 0.02em; }
+        .contact-sub { color: rgba(180,172,160,0.3); }
+
+        /* ─── COMPANIES / COMPANIES STRIP ─── */
+        .companies-strip { background: var(--dark) !important; }
+
+        /* ─── BUTTONS — золотые ─── */
+        .btn-primary { background: var(--accent) !important; color: #fff !important; }
+        .btn-primary:hover { background: var(--accent-bright) !important; }
+        .btn-secondary { border-color: rgba(212,136,42,0.3) !important; color: var(--gray-700) !important; }
+        .btn-secondary:hover { background: var(--accent) !important; color: #fff !important; border-color: var(--accent) !important; }
+        .btn-diag { background: var(--accent) !important; }
+        .btn-diag:hover { background: #fff !important; color: var(--dark) !important; }
+
+        /* ─── SPOTLIGHT ─── */
+        .spotlight { background: radial-gradient(600px circle at var(--mx,50%) var(--my,50%), rgba(212,136,42,0.05) 0%, rgba(212,136,42,0.02) 30%, transparent 70%); }
+
+        /* ─── SCROLL PROGRESS ─── */
+        .scroll-progress { background: linear-gradient(90deg, var(--coffee), var(--accent), var(--accent-bright), var(--accent)); box-shadow: 0 0 10px rgba(212,136,42,0.5); }
+
+        /* ─── CURSOR ─── */
+        .cursor-dot { background: var(--accent); box-shadow: 0 0 10px rgba(212,136,42,0.8); }
+        .cursor-ring { border-color: rgba(212,136,42,0.6); background: rgba(212,136,42,0.05); }
+        .cursor-ring.is-hovering { border-color: var(--accent-bright); background: rgba(212,136,42,0.08); }
+
+        /* ─── ARTIFACT ─── */
+        #artifact { background: var(--panel) !important; }
+        .artifact-overline { color: var(--accent); letter-spacing: 0.18em; }
+        .artifact-title { color: var(--gray-700) !important; font-family: var(--serif); font-weight: 700; text-transform: uppercase; font-style: normal !important; }
+        .artifact-desc { color: rgba(180,172,160,0.4); }
+
+        /* ─── FOOTER ─── */
+        footer { background: var(--dark) !important; border-top: 1px solid rgba(212,136,42,0.1) !important; }
+
+        /* ══ PROJECT STATUS DASHBOARD ═══════════════════════════════ */
+        .psd-interactive {
+            background: #13131C;
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 6px;
+            overflow: hidden;
+            font-family: var(--sans);
+        }
+        .psd-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+        .psd-project-name {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 4px;
+        }
+        .psd-week {
+            font-size: 0.6rem;
+            color: rgba(255,255,255,0.3);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+        .psd-overall-badge {
+            font-size: 0.62rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 5px 12px;
+            border-radius: 100px;
+        }
+        .psd-overall-badge.green { background: rgba(100,190,120,0.15); color: rgba(140,210,140,0.9); border: 1px solid rgba(100,190,120,0.3); }
+        .psd-overall-badge.amber { background: rgba(196,130,42,0.15); color: #C4822A; border: 1px solid rgba(196,130,42,0.3); }
+        .psd-overall-badge.red   { background: rgba(220,80,80,0.15); color: rgba(220,120,120,0.9); border: 1px solid rgba(220,80,80,0.3); }
+
+        .psd-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+        .psd-card {
+            padding: 20px 16px;
+            border-right: 1px solid rgba(255,255,255,0.05);
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .psd-card:last-child { border-right: none; }
+        .psd-card:hover { background: rgba(255,255,255,0.03); }
+        .psd-card-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 10px;
+        }
+        .psd-rag {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+        .psd-rag.green { background: #4aa04a; box-shadow: 0 0 6px rgba(74,160,74,0.5); }
+        .psd-rag.amber { background: #C4822A; box-shadow: 0 0 6px rgba(196,130,42,0.5); }
+        .psd-rag.red   { background: #dc5050; box-shadow: 0 0 6px rgba(220,80,80,0.5); animation: rag-pulse 2s infinite; }
+        @keyframes rag-pulse {
+            0%, 100% { box-shadow: 0 0 6px rgba(220,80,80,0.5); }
+            50% { box-shadow: 0 0 14px rgba(220,80,80,0.9); }
+        }
+        .psd-card-title {
+            font-size: 0.6rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.3);
+        }
+        .psd-card-value {
+            font-family: var(--serif);
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 5px;
+        }
+        .psd-card-detail {
+            font-size: 0.65rem;
+            color: rgba(255,255,255,0.3);
+            line-height: 1.4;
+        }
+        .psd-risks-list { padding: 0; }
+        .psd-risks-header {
+            padding: 10px 20px;
+            font-size: 0.58rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.18);
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+            background: rgba(0,0,0,0.2);
+        }
+        .psd-risk-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .psd-risk-item:last-of-type { border-bottom: none; }
+        .psd-risk-item:hover { background: rgba(255,255,255,0.03); }
+        .psd-risk-level {
+            font-size: 0.55rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            padding: 3px 8px;
+            border-radius: 2px;
+            flex-shrink: 0;
+        }
+        .psd-risk-high .psd-risk-level { background: rgba(220,80,80,0.15); color: rgba(220,120,120,0.9); border: 1px solid rgba(220,80,80,0.3); }
+        .psd-risk-med .psd-risk-level  { background: rgba(196,130,42,0.15); color: #C4822A; border: 1px solid rgba(196,130,42,0.3); }
+        .psd-risk-low .psd-risk-level  { background: rgba(100,190,120,0.15); color: rgba(140,210,140,0.9); border: 1px solid rgba(100,190,120,0.3); }
+        .psd-risk-title { font-size: 0.78rem; color: rgba(255,255,255,0.6); flex: 1; line-height: 1.4; }
+        .psd-risk-expand { font-size: 0.7rem; color: rgba(255,255,255,0.2); transition: transform 0.3s; flex-shrink: 0; }
+        .psd-risk-item.open .psd-risk-expand { transform: rotate(180deg); }
+        .psd-risk-detail {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.22,1,0.36,1);
+            background: rgba(196,130,42,0.04);
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+        }
+        .psd-risk-detail.open { max-height: 140px; }
+        .psd-risk-detail-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 2fr;
+            gap: 16px;
+            padding: 14px 20px;
+        }
+        .psd-rd-label {
+            font-size: 0.55rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.2);
+            margin-bottom: 5px;
+        }
+        .psd-rd-val { font-size: 0.72rem; color: rgba(255,255,255,0.6); line-height: 1.45; }
+        .psd-next-step {
+            padding: 12px 20px;
+            border-top: 1px solid rgba(255,255,255,0.06);
+            font-size: 0.68rem;
+            color: rgba(255,255,255,0.4);
+            letter-spacing: 0.01em;
+            line-height: 1.55;
+        }
+        .psd-ns-label { font-weight: 700; color: #C4822A; margin-right: 6px; }
+        @media (max-width: 640px) {
+            .psd-grid { grid-template-columns: repeat(2, 1fr); }
+            .psd-risk-detail-grid { grid-template-columns: 1fr 1fr; }
+            .psd-risk-detail-grid > :last-child { grid-column: span 2; }
+        }
     </style>
 </head>
 <body>
 <div class="scroll-progress" id="scrollProgress"></div>
-<div class="cursor-dot" id="cursorDot"></div>
-<div class="cursor-ring" id="cursorRing"></div>
 <div class="noise-overlay"></div>
 <div class="spotlight" id="spotlight"></div>
 
 <!-- ══ NAV ═══════════════════════════════════════ -->
-<nav>
-    <a href="#" class="nav-logo">Валентина Шешунова</a>
-    <ul class="nav-links">
+<nav id="mainNav">
+    <div class="nav-top-row">
+        <a href="#" class="nav-logo">Валентина Шешунова</a>
+        <button class="nav-burger" id="navBurger" aria-label="Меню" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+    <ul class="nav-links" id="navLinks">
         <li><a href="#pain">Кейсы</a></li>
         <li><a href="#process">Процесс</a></li>
         <li><a href="#experience">Опыт</a></li>
@@ -2099,22 +2743,17 @@
             <span class="available-dot"></span>
             Открыта к предложениям
         </div>
-        <div class="hero-overline hero-reveal">Product · Project · Customer Success</div>
-        <h1 class="hero-name hero-reveal">Вален&shy;тина<br><em>Шешу&shy;нова</em></h1>
+        <div class="hero-overline hero-reveal">Project Manager · Руководитель проекта</div>
+        <h1 class="hero-name hero-reveal">Вален&shy;тина<br><em>Шешунова</em></h1>
         <p class="hero-tagline hero-reveal">
-            Если у вашего продукта есть метрики — я сделаю их лучше.
-            Если нет — построю с нуля и выведу на рост.
-            8+ лет, 10+ продуктов, EdTech и AI.
+            8+ лет управления проектами.<br>
+            Проекты в срок — без выгорания команды.
         </p>
-        <div class="hero-roles hero-reveal">
-            <span class="role-tag">Product Manager</span>
-            <span class="role-tag">Project Manager</span>
-        </div>
         <div class="hero-cta hero-reveal">
             <a href="https://t.me/ValentinaMinakova" class="btn-primary" target="_blank">
                 → Написать в Telegram
             </a>
-            <a href="Product Manager _ Product Manager _ Руководитель продукта _ Руководитель проектов.pdf" class="btn-secondary" download>
+            <a href="Project manager _ Руководитель проекта.pdf" class="btn-secondary" download>
                 Скачать резюме
             </a>
         </div>
@@ -2123,9 +2762,6 @@
     <div class="hero-right" id="heroRight">
         <div class="hero-photo-frame">
             <img src="фото2.jpg" alt="Валентина Шешунова">
-        </div>
-        <div class="hero-bg-text">
-            <span class="hero-bg-letter">P</span><span class="hero-bg-letter">M</span>
         </div>
     </div>
 </section>
@@ -2178,48 +2814,48 @@
 <!-- ══ STATS ══════════════════════════════════════ -->
 <div id="stats">
     <div class="stat-item">
-        <div class="stat-number stat-accent" data-count="98" data-suffix="%">98%</div>
-        <div class="stat-label">NPS — рекордный</div>
-        <div class="stat-benchmark">avg по EdTech: 35–45%</div>
+        <div class="stat-number stat-accent" data-count="2" data-suffix="×">2×</div>
+        <div class="stat-label">Быстрее закрывали спринты</div>
+        <div class="stat-benchmark">с 3 нед → 1.5 нед в Like Центре</div>
     </div>
     <div class="stat-item">
-        <div class="stat-number stat-accent" data-count="80" data-suffix="%">80%</div>
-        <div class="stat-label">Retention подписки</div>
-        <div class="stat-benchmark">avg по отрасли: 20–30%</div>
+        <div class="stat-number stat-accent" data-count="23" data-suffix="">23</div>
+        <div class="stat-label">Региона в синхроне</div>
+        <div class="stat-benchmark">0 эскалаций к CEO</div>
     </div>
     <div class="stat-item">
-        <div class="stat-number" data-count="10" data-suffix="+">10+</div>
-        <div class="stat-label">продуктов запущено</div>
+        <div class="stat-number" data-count="11" data-suffix="">11</div>
+        <div class="stat-label">проектов вела одновременно</div>
     </div>
     <div class="stat-item">
-        <div class="stat-number" data-count="8" data-suffix="+">8+</div>
-        <div class="stat-label">лет опыта</div>
+        <div class="stat-number" data-count="8" data-suffix="">8</div>
+        <div class="stat-label">лет в управлении</div>
     </div>
 </div>
 
 <!-- ══ TICKER ══════════════════════════════════════ -->
 <div class="ticker-wrap">
     <div class="ticker-track">
-        <div class="ticker-item"><span>✦</span> Product Manager</div>
-        <div class="ticker-item"><span>✦</span> 8+ лет опыта</div>
-        <div class="ticker-item"><span>✦</span> NPS 98%</div>
-        <div class="ticker-item"><span>✦</span> Retention 80%</div>
-        <div class="ticker-item"><span>✦</span> 10+ продуктов запущено</div>
-        <div class="ticker-item"><span>✦</span> AI-продукты</div>
-        <div class="ticker-item"><span>✦</span> EdTech</div>
         <div class="ticker-item"><span>✦</span> Project Manager</div>
-        <div class="ticker-item"><span>✦</span> Самара → Удалённо</div>
-        <div class="ticker-item"><span>✦</span> Data-driven</div>
-        <div class="ticker-item"><span>✦</span> Product Manager</div>
         <div class="ticker-item"><span>✦</span> 8+ лет опыта</div>
-        <div class="ticker-item"><span>✦</span> NPS 98%</div>
-        <div class="ticker-item"><span>✦</span> Retention 80%</div>
-        <div class="ticker-item"><span>✦</span> 10+ продуктов запущено</div>
-        <div class="ticker-item"><span>✦</span> AI-продукты</div>
-        <div class="ticker-item"><span>✦</span> EdTech</div>
-        <div class="ticker-item"><span>✦</span> Project Manager</div>
+        <div class="ticker-item"><span>✦</span> Delivery end-to-end</div>
+        <div class="ticker-item"><span>✦</span> 20+ регионов в синхроне</div>
+        <div class="ticker-item"><span>✦</span> 5+ проектов в срок</div>
+        <div class="ticker-item"><span>✦</span> RACI · WBS · OKR</div>
+        <div class="ticker-item"><span>✦</span> EdTech · AI</div>
+        <div class="ticker-item"><span>✦</span> Руководитель проекта</div>
         <div class="ticker-item"><span>✦</span> Самара → Удалённо</div>
-        <div class="ticker-item"><span>✦</span> Data-driven</div>
+        <div class="ticker-item"><span>✦</span> RAG-статусы</div>
+        <div class="ticker-item"><span>✦</span> Project Manager</div>
+        <div class="ticker-item"><span>✦</span> 8+ лет опыта</div>
+        <div class="ticker-item"><span>✦</span> Delivery end-to-end</div>
+        <div class="ticker-item"><span>✦</span> 20+ регионов в синхроне</div>
+        <div class="ticker-item"><span>✦</span> 5+ проектов в срок</div>
+        <div class="ticker-item"><span>✦</span> RACI · WBS · OKR</div>
+        <div class="ticker-item"><span>✦</span> EdTech · AI</div>
+        <div class="ticker-item"><span>✦</span> Руководитель проекта</div>
+        <div class="ticker-item"><span>✦</span> Самара → Удалённо</div>
+        <div class="ticker-item"><span>✦</span> RAG-статусы</div>
     </div>
 </div>
 
@@ -2232,32 +2868,31 @@
         </div>
         <div class="about-grid">
             <blockquote class="about-quote fade-in">
-                «Собственник не должен думать о том, почему пользователи уходят.
-                <em>Это моя работа.</em>»
+                «Хаос — это не норма. Это симптом.
+                <em>Моя работа — сделать так, чтобы проект шёл в срок, команда знала приоритеты, а вы спали спокойно.</em>»
             </blockquote>
             <div class="about-text fade-in">
                 <p>
-                    В продукт пришла через продажи и управление — и это не случайность.
-                    Именно там научилась читать людей: что их останавливает, за что они готовы платить,
-                    когда возвращаются, а когда уходят навсегда. Этот опыт стал фундаментом —
-                    я создаю продукты, которые решают реальные задачи, а не те, что красиво выглядят на питче.
+                    В управление проектами пришла через продажи и операционное руководство — и это не случайность.
+                    Именно там научилась держать несколько треков одновременно: бюджет, команда, клиент, дедлайн.
+                    Этот опыт стал фундаментом — я веду проекты так, чтобы ни одна переменная не выскочила из-под контроля.
                 </p>
                 <p>
-                    8+ лет в EdTech, AI и B2C. Умею найти узкое место за 2 недели и дать конкретное решение —
-                    не «улучшить онбординг», а «сократить шаги с 7 до 3 и поднять Activation на 23%».
+                    8+ лет в EdTech, AI и B2C. Умею построить процесс за неделю и удержать его живым на полгода —
+                    не «введём Jira», а «к пятнице у каждого есть задача, к понедельнику — статус».
                 </p>
                 <div class="diff-list">
                     <div class="diff-item">
                         <div class="diff-dot"></div>
-                        <div class="diff-text">Запуск с нуля до PMF: 50+ CustDev → гипотезы → MVP → итерации → метрики</div>
+                        <div class="diff-text">Проект end-to-end: от kick-off и WBS до приёмки и ретроспективы</div>
                     </div>
                     <div class="diff-item">
                         <div class="diff-dot"></div>
-                        <div class="diff-text">AI в продукте: GPT-сценарии, чат-боты, автоматизация — в продакшне, не в презентации</div>
+                        <div class="diff-text">RACI с первой недели: каждый знает свою роль — ничего не падает в щели</div>
                     </div>
                     <div class="diff-item">
                         <div class="diff-dot"></div>
-                        <div class="diff-text">Подписочные модели: Retention 80% — верхние 5% в отрасли</div>
+                        <div class="diff-text">Заказчик всегда в курсе: RAG-статусы, еженедельный синк, 0 сюрпризов</div>
                     </div>
                     <div class="diff-item">
                         <div class="diff-dot"></div>
@@ -2265,7 +2900,7 @@
                     </div>
                     <div class="diff-item">
                         <div class="diff-dot"></div>
-                        <div class="diff-text">Думаю как собственник: ROI, юнит-экономика, LTV/CAC — не только пользователь</div>
+                        <div class="diff-text">Думаю как собственник: P&amp;L, риски, scope creep — под контролем с первой недели</div>
                     </div>
                 </div>
             </div>
@@ -2283,47 +2918,47 @@
         <div class="process-steps fade-in">
             <div class="process-step">
                 <div class="step-number">01</div>
-                <div class="step-phase">Диагностика</div>
-                <div class="step-title">Нахожу, где продукт теряет деньги</div>
+                <div class="step-phase">Kick-off и скоп</div>
+                <div class="step-title">Фиксирую цели, рамки, стейкхолдеров</div>
                 <div class="step-desc">
-                    CustDev-интервью, анализ воронки, карта CJM.
-                    Не предполагаю — собираю данные. За 2 недели
-                    становится ясно узкое место и приоритет действий.
+                    Kick-off сессия, сбор требований, фиксация скопа.
+                    Кто принимает решения, кто в команде, какие риски уже видны.
+                    Без этого шага дедлайны — не договорённость, а надежда.
                 </div>
-                <span class="step-timing">Неделя 1–2</span>
+                <span class="step-timing">Неделя 1</span>
             </div>
             <div class="process-step">
                 <div class="step-number">02</div>
-                <div class="step-phase">Стратегия и гипотезы</div>
-                <div class="step-title">Формирую план с измеримым результатом</div>
+                <div class="step-phase">Планирование</div>
+                <div class="step-title">WBS, RACI, риски, бюджет, ресурсы</div>
                 <div class="step-desc">
-                    Приоритизация по ICE/RICE, product roadmap с привязкой
-                    к OKR. Каждая гипотеза — с критерием успеха.
-                    Никаких «улучшим» без конкретных цифр.
+                    Декомпозирую задачи в WBS, строю RACI и Risk Register.
+                    Roadmap с конкретными milestone и критериями приёмки.
+                    Стейкхолдер видит план — не слайды, а рабочий документ.
                 </div>
-                <span class="step-timing">Неделя 3–4</span>
+                <span class="step-timing">Неделя 2–3</span>
             </div>
             <div class="process-step">
                 <div class="step-number">03</div>
-                <div class="step-phase">Запуск и тесты</div>
-                <div class="step-title">MVP → A/B тест → первые результаты</div>
+                <div class="step-phase">Execution</div>
+                <div class="step-title">Спринты, velocity, статусы RAG</div>
                 <div class="step-desc">
-                    Запускаю итерации быстро — не ждать полгода.
-                    Agile-спринты, velocity-трекинг, RACI-матрица.
-                    Собственник видит прогресс раз в неделю, не раз в квартал.
+                    Agile-спринты с velocity-трекингом. Еженедельный статус:
+                    RAG + следующий шаг + открытые риски. Собственник в курсе
+                    без участия в каждом чате.
                 </div>
-                <span class="step-timing">Неделя 5–8</span>
+                <span class="step-timing">Неделя 4–N</span>
             </div>
             <div class="process-step">
                 <div class="step-number">04</div>
-                <div class="step-phase">Рост и масштаб</div>
-                <div class="step-title">Превращаю результат в систему</div>
+                <div class="step-phase">Delivery</div>
+                <div class="step-title">Приёмка, ретроспектива, документация</div>
                 <div class="step-desc">
-                    Закрепляю рост через механики retention, автоматизацию
-                    и масштабирование на новые сегменты. Продукт растёт
-                    без ручного управления каждым процессом.
+                    Проект сдаётся по чеклисту. Ретроспектива фиксирует,
+                    что сработало и что улучшить. Документация передаётся команде.
+                    Следующий проект начнётся с меньшим трением.
                 </div>
-                <span class="step-timing">Месяц 3+</span>
+                <span class="step-timing">Финал</span>
             </div>
         </div>
     </div>
@@ -2333,12 +2968,12 @@
 <div class="roi-strip">
     <div class="roi-inner">
         <div class="roi-text fade-in">
-            Я не статья расходов —&nbsp;<em>я точка роста.</em>
+            Проект не срывается —&nbsp;<em>он управляется.</em>
         </div>
         <div class="roi-sub fade-in">
-            Окупаю себя через рост метрик, а не через отчёты.
-            Со мной бизнесы не держатся на плаву — они масштабируются
-            и выходят на чистую прибыль.
+            Сроки — это договорённость, а не надежда. Я выстраиваю процессы,
+            при которых команда знает приоритеты, стейкхолдеры видят прогресс,
+            а риски видны до того, как станут проблемами.
         </div>
     </div>
 </div>
@@ -2351,119 +2986,125 @@
             <h2 class="section-title">Какую головную боль снимаю</h2>
         </div>
         <p class="pain-intro fade-in">
-            Четыре ситуации, которые съедают деньги и нервы собственника.
+            Четыре ситуации, которые съедают деньги и нервы руководителя.
             <strong>Узнаёте своё?</strong>
         </p>
         <div class="cases-grid fade-in">
 
             <div class="case-card">
-                <div class="case-tag">Бизнес-Гарант · Retention / Отток</div>
-                <div class="case-pain">«Пользователи заходят — и уходят. Непонятно почему»</div>
+                <div class="case-tag">Like Центр · Хаос / Единое окно</div>
+                <div class="case-pain">«20+ чатов с клиентами, команда не понимает задач друг друга, обещания не выполняются»</div>
                 <div class="case-situation">
-                    Команда сделала 3 новых фичи за полгода. D30 Retention упал с 35% до 18%.
-                    NPS 52. Все заняты, но продукт не растёт.
+                    Клиенты писали в 20+ разных каналах — мессенджеры, соцсети, почта.
+                    Команда не понимала, кто за что отвечает: задачи терялись, обещанные услуги
+                    не выполнялись. Систематический хаос без единого окна и приоритетов.
                 </div>
                 <div class="case-solution">
-                    Провела 20 интервью с отказавшимися. Нашла: онбординг убивал на шаге 4 из 7.
-                    Упростила до 3 шагов, добавила триггерные письма на день 3 и 7.
-                    Итог через квартал:
+                    Создала омниканальное окно — все обращения в одном месте, каждому назначен
+                    ответственный. Зафиксировала задачи, согласовала очерёдность проектов
+                    напрямую с собственником. Прозрачный бэклог: ни одна задача не висит без статуса.
                 </div>
                 <div class="case-result">
                     <div class="case-metric">
-                        <div class="case-metric-num">42%</div>
-                        <div class="case-metric-label">D30 Retention</div>
+                        <div class="case-metric-num">20+</div>
+                        <div class="case-metric-label">Каналов → 1 окно</div>
+                    </div>
+                    <div class="case-metric">
+                        <div class="case-metric-num">0</div>
+                        <div class="case-metric-label">Потерянных обращений</div>
+                    </div>
+                    <div class="case-metric">
+                        <div class="case-metric-num">&gt;96%</div>
+                        <div class="case-metric-label">NPS и CSI</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="case-card">
+                <div class="case-tag">Бизнес-Гарант · Запуск / 0 → результат</div>
+                <div class="case-pain">«Есть идея и бюджет — нет структуры, плана, подрядчиков»</div>
+                <div class="case-situation">
+                    Собственник с идеей нового EdTech-направления. Нет дорожной карты,
+                    финансового плана, команды. Стандартная история: «запустить как можно скорее» —
+                    без понимания что именно и в каком порядке.
+                </div>
+                <div class="case-solution">
+                    Выявила конечный результат и ожидания собственника. Сформировала Roadmap,
+                    структурировала ТЗ для каждого трека, собрала подрядчиков. Вывела собственника
+                    из операционки — он занимается стратегией, не задачами.
+                </div>
+                <div class="case-result">
+                    <div class="case-metric">
+                        <div class="case-metric-num">0→</div>
+                        <div class="case-metric-label">Запуск с нуля</div>
+                    </div>
+                    <div class="case-metric">
+                        <div class="case-metric-num">80%</div>
+                        <div class="case-metric-label">Retention</div>
                     </div>
                     <div class="case-metric">
                         <div class="case-metric-num">90+</div>
                         <div class="case-metric-label">NPS</div>
                     </div>
+                </div>
+            </div>
+
+            <div class="case-card">
+                <div class="case-tag">FITNESS HOUSE · Кризис / Открытие в срок</div>
+                <div class="case-pain">«Дата в 1000+ договорах — клуб не готов, всё срывается»</div>
+                <div class="case-situation">
+                    Дата открытия зафиксирована в 1000+ договорах, мероприятия анонсированы.
+                    Перенос невозможен. Технически клуб не готов: подрядчики срывают сроки,
+                    постоянные аварии по вине арендатора, штат не укомплектован.
+                </div>
+                <div class="case-solution">
+                    Вышла напрямую на собственника здания: договорилась о дополнительной бригаде
+                    для ускорения ремонта и устранения аварий за их счёт — в счёт абонементов
+                    для дирекции. Открыла допнабор тренеров на условиях аренды зала — переманила
+                    лучших специалистов города.
+                </div>
+                <div class="case-result">
                     <div class="case-metric">
-                        <div class="case-metric-num">2 мес</div>
-                        <div class="case-metric-label">Срок</div>
+                        <div class="case-metric-num">✓</div>
+                        <div class="case-metric-label">Открытие в срок</div>
+                    </div>
+                    <div class="case-metric">
+                        <div class="case-metric-num">0 ₽</div>
+                        <div class="case-metric-label">Доп. затрат на ремонт</div>
+                    </div>
+                    <div class="case-metric">
+                        <div class="case-metric-num">#1</div>
+                        <div class="case-metric-label">Тренеры в городе</div>
                     </div>
                 </div>
             </div>
 
             <div class="case-card">
-                <div class="case-tag">Like Центр · Запуск / 0 → PMF</div>
-                <div class="case-pain">«Идея есть. Команда есть. Продукт не взлетает»</div>
+                <div class="case-tag">ProGorod · Масштаб / Федеральные клиенты</div>
+                <div class="case-pain">«Продаём только местным — федеральный рынок закрыт»</div>
                 <div class="case-situation">
-                    6 месяцев разработки, первые 200 пользователей — и тишина.
-                    Непонятно, кто целевая аудитория и что менять в первую очередь.
+                    Отдел работал исключительно с локальными рекламодателями города.
+                    Федеральные компании — вне поля зрения, потолок по выручке очевиден.
+                    Никакой системной работы с ЛПР крупных игроков.
                 </div>
                 <div class="case-solution">
-                    50+ CustDev-интервью → переформулировали value proposition → переписали
-                    онбординг → запустили 4 итерации MVP с A/B тестами на разных сегментах.
-                    Нашли точку роста через корпоративный сегмент B2B2C.
+                    2–3 командировки в месяц по городам России — личные встречи с ЛПР
+                    крупнейших федеральных компаний. Комплексное предложение с омниканальной
+                    коммуникацией сокращало клиентам время и деньги в 2–3 раза
+                    по сравнению с работой через нескольких подрядчиков.
                 </div>
                 <div class="case-result">
-                    <div class="case-metric">
-                        <div class="case-metric-num">70%</div>
-                        <div class="case-metric-label">Conversion</div>
-                    </div>
-                    <div class="case-metric">
-                        <div class="case-metric-num">98%</div>
-                        <div class="case-metric-label">NPS</div>
-                    </div>
-                    <div class="case-metric">
-                        <div class="case-metric-num">2 мес</div>
-                        <div class="case-metric-label">До первых продаж</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="case-card">
-                <div class="case-tag">Like Центр · AI / Автоматизация</div>
-                <div class="case-pain">«Хочу AI в продукт — но дорого, долго, непонятно с чего»</div>
-                <div class="case-situation">
-                    Конкуренты уже используют ChatGPT. Собственник хочет то же самое.
-                    Разработчики называют бюджет на полгода. Бизнес ждать не может.
-                </div>
-                <div class="case-solution">
-                    Приоритизировала по ICE: что даст максимум при минимуме ресурсов.
-                    За 6 недель запустили GPT-сценарий в онбординге — без сложной интеграции.
-                    Потом автоматизировали обработку запросов в саппорте: −40% нагрузки на команду.
-                </div>
-                <div class="case-result">
-                    <div class="case-metric">
-                        <div class="case-metric-num">+23%</div>
-                        <div class="case-metric-label">Activation</div>
-                    </div>
-                    <div class="case-metric">
-                        <div class="case-metric-num">−40%</div>
-                        <div class="case-metric-label">Нагрузка саппорт</div>
-                    </div>
-                    <div class="case-metric">
-                        <div class="case-metric-num">6 нед</div>
-                        <div class="case-metric-label">Time to value</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="case-card">
-                <div class="case-tag">ProGorod · Команда / Delivery</div>
-                <div class="case-pain">«Команда работает — а релизов и результатов нет»</div>
-                <div class="case-situation">
-                    Все заняты, стендапы каждый день, задачи есть. Но фичи не выходят вовремя,
-                    приоритеты меняются каждую неделю, собственник тонет в операционке.
-                </div>
-                <div class="case-solution">
-                    Построила product roadmap с привязкой к OKR. Ввела спринты 2 недели,
-                    velocity-трекинг и RACI на каждую эпику. Собственник перестал быть в копии
-                    каждого письма — только статус-репорт раз в неделю: RAG + следующий шаг.
-                </div>
-                <div class="case-result">
-                    <div class="case-metric">
-                        <div class="case-metric-num">×2</div>
-                        <div class="case-metric-label">Скорость delivery</div>
-                    </div>
-                    <div class="case-metric">
-                        <div class="case-metric-num">0</div>
-                        <div class="case-metric-label">Эскалаций к СЕО</div>
-                    </div>
                     <div class="case-metric">
                         <div class="case-metric-num">20+</div>
-                        <div class="case-metric-label">Регионов в синхроне</div>
+                        <div class="case-metric-label">Федеральных клиентов</div>
+                    </div>
+                    <div class="case-metric">
+                        <div class="case-metric-num">3 мес</div>
+                        <div class="case-metric-label">Срок</div>
+                    </div>
+                    <div class="case-metric">
+                        <div class="case-metric-num">2–3×</div>
+                        <div class="case-metric-label">Эффективнее для клиента</div>
                     </div>
                 </div>
             </div>
@@ -2478,52 +3119,52 @@
         <div class="section-header fade-in">
             <div class="section-number">04</div>
             <h2 class="section-title">Почему выбирают меня</h2>
-            <p class="section-sub">Не потому что красиво написано в резюме.<br>А потому что есть деньги на счету.</p>
+            <p class="section-sub">Не потому что красиво написано в резюме.<br>А потому что проект сдан в срок.</p>
         </div>
         <div class="whyme-grid fade-in">
 
             <div class="whyme-card whyme-card--accent">
-                <div class="whyme-icon">₽</div>
-                <div class="whyme-trigger">Окупаю себя<br>в первый квартал</div>
-                <div class="whyme-proof">Рост конверсии на 15–30% уже в первые 60 дней — это прямая прибыль, которая перекрывает мою стоимость. Проверено на 3 продуктах подряд.</div>
+                <div class="whyme-icon">⧖</div>
+                <div class="whyme-trigger">Доставляю в срок —<br>не в идеале, а в жизни</div>
+                <div class="whyme-proof">5 AI-проектов в Like Центре — каждый сдан в рамках дедлайна. Срыв — это не форс-мажор, это провал планирования. Я планирую так, чтобы буфер был встроен.</div>
             </div>
 
             <div class="whyme-card">
-                <div class="whyme-icon">×</div>
-                <div class="whyme-trigger">Retention 80% —<br>деньги не уходят</div>
-                <div class="whyme-proof">Удержать клиента в 5–7 раз дешевле, чем привлечь. Я строю продукт так, чтобы люди платили снова и снова — без лишних скидок и акций.</div>
-            </div>
-
-            <div class="whyme-card">
-                <div class="whyme-icon">↗</div>
-                <div class="whyme-trigger">Запускаю с нуля<br>до прибыли — быстро</div>
-                <div class="whyme-proof">FITNESS HOUSE: с нуля до операционной прибыли за 2 месяца. 5 AI-продуктов в Like Центре: каждый — в рынке, в срок, с NPS 98%.</div>
-            </div>
-
-            <div class="whyme-card">
-                <div class="whyme-icon">✕</div>
-                <div class="whyme-trigger">Экономлю на ошибках,<br>которых не видно</div>
-                <div class="whyme-proof">Плохо сформулированные требования → переделки стоят 3–10× дороже. Я закрываю дыры до разработки: сохраняю бюджет и нервы команды.</div>
+                <div class="whyme-icon">◉</div>
+                <div class="whyme-trigger">Заказчик<br>всегда в курсе</div>
+                <div class="whyme-proof">Еженедельный статус RAG + следующий шаг. Без сюрпризов. CEO перестаёт быть в копии каждого письма — только то, что требует решения сверху.</div>
             </div>
 
             <div class="whyme-card">
                 <div class="whyme-icon">◎</div>
-                <div class="whyme-trigger">Команда начинает<br>работать в синхроне</div>
-                <div class="whyme-proof">Хаос между отделами — невидимый убыток. Выстраиваю процессы, RACI, ритм — и команда перестаёт тормозить друг друга. 20+ регионов держала в синхроне без единой эскалации к CEO.</div>
+                <div class="whyme-trigger">RACI с первой недели —<br>ничего не падает в щели</div>
+                <div class="whyme-proof">Хаос между отделами — невидимый убыток. 20+ регионов держала в синхроне без единой эскалации к CEO. У каждого своя зона — всё под контролем.</div>
+            </div>
+
+            <div class="whyme-card">
+                <div class="whyme-icon">▲</div>
+                <div class="whyme-trigger">Риски вижу<br>до того, как стреляют</div>
+                <div class="whyme-proof">Risk Register с первых дней. Scope creep, ресурсные риски, зависимости — всё под управлением. Плохой сюрприз на финише — это провал на старте.</div>
+            </div>
+
+            <div class="whyme-card">
+                <div class="whyme-icon">₽</div>
+                <div class="whyme-trigger">P&amp;L и бюджет<br>под контролем</div>
+                <div class="whyme-proof">Управляла P&amp;L фитнес-клуба и финмоделью EdTech-подписки. Думаю через деньги: каждая задача — это стоимость. Собственник знает, куда уходит бюджет.</div>
             </div>
 
             <div class="whyme-card whyme-card--dark">
                 <div class="whyme-icon">→</div>
-                <div class="whyme-trigger">Не нужно объяснять<br>дважды</div>
-                <div class="whyme-proof">8 лет в продукте, EdTech, B2C, AI. Вхожу в контекст быстро, задаю правильные вопросы — и к концу первой недели уже двигаю задачи, а не разбираюсь в процессах.</div>
+                <div class="whyme-trigger">Вхожу в контекст<br>быстро</div>
+                <div class="whyme-proof">8 лет в EdTech, AI, B2C. К концу первой недели уже двигаю задачи, а не разбираюсь в процессах. Kick-off за 2 дня — и у команды есть план.</div>
             </div>
 
         </div>
 
         <div class="whyme-bottom fade-in">
             <div class="whyme-bottom-text">
-                Собственник платит не за присутствие PM в офисе —<br>
-                <strong>а за рост выручки, снижение оттока и продукт, которым гордится команда.</strong>
+                Компания платит не за присутствие PM в чатах —<br>
+                <strong>а за проект в срок, команду в синхроне и риски под управлением.</strong>
             </div>
             <a href="https://t.me/ValentinaMinakova" target="_blank" class="whyme-cta">Обсудить вашу задачу →</a>
         </div>
@@ -2539,45 +3180,45 @@
         </div>
         <div class="expertise-grid fade-in">
             <div class="expertise-card">
-                <span class="exp-icon">◈</span>
-                <div class="exp-title">Product Manager</div>
-                <div class="exp-sub">Продуктовое мышление</div>
+                <span class="exp-icon">◎</span>
+                <div class="exp-title">Project Management</div>
+                <div class="exp-sub">Управление проектами</div>
                 <ul class="exp-list">
-                    <li>CustDev · JTBD · CJM · 50+ интервью</li>
-                    <li>AARRR · Воронки · Conversion rate</li>
-                    <li>Roadmap · ICE/RICE · MoSCoW</li>
-                    <li>A/B тесты · MVP · Гипотезы</li>
-                    <li>Подписка · LTV / CAC · Юнит-экономика</li>
-                    <li>AI-продукты · GPT · Вайбкодинг</li>
-                    <li>SQL (базовый) · Figma · Jira</li>
+                    <li>Agile / Scrum / Kanban · Velocity</li>
+                    <li>WBS · RACI · Risk Register</li>
+                    <li>Roadmap · Milestones · Gantt</li>
+                    <li>OKR · Статус-репорты RAG</li>
+                    <li>Kick-off · Приёмка · Ретро</li>
+                    <li>P&amp;L · Бюджет · Scope control</li>
+                    <li>Jira · Trello · Bitrix · Miro</li>
                 </ul>
             </div>
             <div class="expertise-card">
-                <span class="exp-icon">◎</span>
-                <div class="exp-title">Project Manager</div>
-                <div class="exp-sub">Управление проектами</div>
+                <span class="exp-icon">◈</span>
+                <div class="exp-title">Работа с клиентами</div>
+                <div class="exp-sub">Стейкхолдеры и заказчики</div>
                 <ul class="exp-list">
-                    <li>Agile / Scrum · Velocity-трекинг</li>
-                    <li>Roadmap · Delivery end-to-end</li>
-                    <li>WBS · RACI · Risk Register</li>
-                    <li>OKR · Статус-репорты RAG</li>
-                    <li>Кросс-функциональные команды</li>
-                    <li>P&L · Финансовые KPI</li>
-                    <li>Bitrix · Miro · Google Sheets</li>
+                    <li>Работа со стейкхолдерами</li>
+                    <li>Сбор требований · Согласование ТЗ</li>
+                    <li>Статус-встречи · Управление ожиданиями</li>
+                    <li>Переговоры · Презентации</li>
+                    <li>NPS · CSI · Управление эскалациями</li>
+                    <li>Работа с подрядчиками</li>
+                    <li>Долгосрочные контракты</li>
                 </ul>
             </div>
             <div class="expertise-card">
                 <span class="exp-icon">◉</span>
-                <div class="exp-title">Head of Customer Success</div>
-                <div class="exp-sub">Клиентский сервис</div>
+                <div class="exp-title">Инструменты</div>
+                <div class="exp-sub">Аналитика и автоматизация</div>
                 <ul class="exp-list">
-                    <li>NPS · CSI · Churn rate · LTV</li>
-                    <li>CJM · Анализ причин оттока</li>
-                    <li>SLA · Скорость обработки</li>
-                    <li>Команды до 20+ человек</li>
-                    <li>AI-автоматизация поддержки</li>
-                    <li>Базы знаний · Регламенты · KPI</li>
-                    <li>VIP-клиенты · Эскалации</li>
+                    <li>SQL (базовый) · Google Sheets</li>
+                    <li>Figma · Notion · Confluence</li>
+                    <li>AI-инструменты · Вайбкодинг</li>
+                    <li>BI-дашборды · Аналитика данных</li>
+                    <li>Финмоделирование · Unit-экономика</li>
+                    <li>Английский B1</li>
+                    <li>Удалённая работа — комфортно</li>
                 </ul>
             </div>
         </div>
@@ -2601,29 +3242,29 @@
                     <div class="tl-industry">EdTech · AI · B2C</div>
                 </div>
                 <div class="tl-right">
-                    <div class="tl-role">Product Manager</div>
+                    <div class="tl-role">Project / Product Manager</div>
                     <div class="tl-desc">
-                        Запустила 5+ AI-продуктов от нуля до PMF. 50+ CustDev-интервью → CJM →
-                        оптимизация воронки на каждом этапе. Внедрила GPT-сценарии в онбординг
-                        и активацию. Управляла roadmap и кросс-функциональной командой.
-                        Результат: редкие для EdTech показатели — NPS 98%, CSI 96%.
+                        Вела 10+ проектов одновременно (AI / EdTech / Консалтинг) — от планирования до достижения KPI.
+                        Управляла кросс-функциональной командой 20 человек (разработка, аналитика, маркетинг, продажи, сервис).
+                        Полный цикл: roadmap, контроль сроков и качества, работа с подрядчиками, регулярная отчётность.
+                        Ежедневный контроль аналитики для предотвращения рисков и эскалаций.
                     </div>
                     <div class="tl-results">
                         <div class="res-badge">
-                            <div class="res-num">98%</div>
-                            <div class="res-label">NPS</div>
+                            <div class="res-num">10+</div>
+                            <div class="res-label">Проектов параллельно</div>
                         </div>
                         <div class="res-badge">
-                            <div class="res-num">96%</div>
-                            <div class="res-label">CSI</div>
-                        </div>
-                        <div class="res-badge">
-                            <div class="res-num">70%</div>
-                            <div class="res-label">Conversion</div>
+                            <div class="res-num">&gt;96%</div>
+                            <div class="res-label">NPS и CSI</div>
                         </div>
                         <div class="res-badge">
                             <div class="res-num">90%</div>
-                            <div class="res-label">Применяют навык</div>
+                            <div class="res-label">Результат уже на этапе внедрения</div>
+                        </div>
+                        <div class="res-badge">
+                            <div class="res-num">15 млн</div>
+                            <div class="res-label">Оборот / месяц</div>
                         </div>
                     </div>
                 </div>
@@ -2636,25 +3277,24 @@
                     <div class="tl-industry">EdTech · Подписка</div>
                 </div>
                 <div class="tl-right">
-                    <div class="tl-role">Product Manager</div>
+                    <div class="tl-role">Project / Product Manager</div>
                     <div class="tl-desc">
-                        Запустила EdTech-подписку с нуля: стратегия, финмодель, команда, продуктовая логика.
-                        Управляла retention и LTV через контентные и продуктовые механики.
-                        Масштабировала на регионы через комьюнити-модель.
-                        Retention 80% — верхние 5% в отрасли для подписочных продуктов.
+                        Онлайн бизнес-клуб предпринимателей. Запустила с нуля: стратегия, финмодель, процессы, команда, продукт.
+                        Контролировала KPI (выручка, retention, вовлечённость, LTV), координировала подрядчиков,
+                        вела регулярную отчётность для собственников. Выполнение плана по выручке — 100%.
                     </div>
                     <div class="tl-results">
                         <div class="res-badge">
-                            <div class="res-num">80%</div>
-                            <div class="res-label">Retention</div>
+                            <div class="res-num">80%+</div>
+                            <div class="res-label">Retention / мес</div>
                         </div>
                         <div class="res-badge">
-                            <div class="res-num">90+</div>
+                            <div class="res-num">90%+</div>
                             <div class="res-label">NPS</div>
                         </div>
                         <div class="res-badge">
-                            <div class="res-num">0→</div>
-                            <div class="res-label">Запуск с нуля</div>
+                            <div class="res-num">250+</div>
+                            <div class="res-label">Резидентов / мес</div>
                         </div>
                     </div>
                 </div>
@@ -2669,18 +3309,22 @@
                 <div class="tl-right">
                     <div class="tl-role">Руководитель / Управляющий</div>
                     <div class="tl-desc">
-                        Запустила фитнес-клуб с нуля до операционной прибыли. Управляла P&L,
-                        командой, клиентским сервисом и выполнением финансовых KPI.
-                        Опыт полного цикла: от ремонта и найма до выхода на целевую маржинальность.
+                        Запустила фитнес-клуб с нуля до операционной прибыли. Управляла P&amp;L,
+                        бюджетом и кросс-функциональной командой (продажи, персонал, маркетинг, сервис).
+                        Выстроила ритм KPI-обзоров и RACI между отделами. Полный цикл: от стройки до маржинальности.
                     </div>
                     <div class="tl-results">
                         <div class="res-badge">
-                            <div class="res-num">P&L</div>
+                            <div class="res-num">P&amp;L</div>
                             <div class="res-label">Операционная прибыль</div>
                         </div>
                         <div class="res-badge">
                             <div class="res-num">0→</div>
                             <div class="res-label">Запуск с нуля</div>
+                        </div>
+                        <div class="res-badge">
+                            <div class="res-num">2 г 5 м</div>
+                            <div class="res-label">Управляла клубом</div>
                         </div>
                     </div>
                 </div>
@@ -2690,23 +3334,28 @@
                 <div class="tl-left">
                     <div class="tl-period">Февраль 2017 —<br>Декабрь 2019</div>
                     <div class="tl-company">ProGorod</div>
-                    <div class="tl-industry">СМИ · Продажи</div>
+                    <div class="tl-industry">СМИ · Федеральная сеть</div>
                 </div>
                 <div class="tl-right">
-                    <div class="tl-role">Руководитель продаж / Зам. коммерческого директора</div>
+                    <div class="tl-role">Руководитель коммерческого отдела</div>
                     <div class="tl-desc">
                         Построила федеральный отдел продаж с нуля — 20+ регионов.
-                        Внедрила KPI-систему, развивала долгосрочные контракты с ключевыми клиентами.
-                        Отдел признан лучшим по эффективности в структуре холдинга.
+                        Ввела RACI, KPI-систему и ритм коммуникаций между регионами.
+                        Управляла стейкхолдерами внутри холдинга.
+                        Отдел признан лучшим по эффективности — 0 эскалаций к CEO.
                     </div>
                     <div class="tl-results">
                         <div class="res-badge">
                             <div class="res-num">20+</div>
-                            <div class="res-label">Регионов</div>
+                            <div class="res-label">Регионов в синхроне</div>
                         </div>
                         <div class="res-badge">
                             <div class="res-num">#1</div>
                             <div class="res-label">В холдинге</div>
+                        </div>
+                        <div class="res-badge">
+                            <div class="res-num">0</div>
+                            <div class="res-label">Эскалаций к CEO</div>
                         </div>
                     </div>
                 </div>
@@ -2721,11 +3370,11 @@
     <div class="artifact-inner">
         <div class="fade-in">
             <div class="artifact-overline">Пример артефакта</div>
-            <h2 class="artifact-title">Product Roadmap —<br>как выглядит мой подход</h2>
+            <h2 class="artifact-title">Project Roadmap —<br>как я планирую и управляю</h2>
             <p class="artifact-desc">
-                Каждый roadmap привязан к OKR компании, приоритизирован по ICE
-                и показывает собственнику понятную картину: что делаем, зачем
-                и какой результат ожидаем в каждом спринте.
+                Каждый проект начинается с чёткого плана: фазы, дедлайны, ответственные, риски.
+                Roadmap привязан к OKR, показывает собственнику понятную картину
+                и обновляется каждую неделю — не раз в квартал.
             </p>
         </div>
         <div class="rm-interactive fade-in" id="rmInteractive">
@@ -2740,102 +3389,98 @@
             <div class="rm-i-scroll">
                 <div class="rm-i-table">
                     <div class="rm-q-header">
-                        <div class="rm-q-cell" style="border-left:none;text-align:left;padding-left:12px;">Трек</div>
-                        <div class="rm-q-cell current">Q1 · Сейчас</div>
-                        <div class="rm-q-cell">Q2</div>
-                        <div class="rm-q-cell">Q3</div>
-                        <div class="rm-q-cell">Q4</div>
+                        <div class="rm-q-cell" style="border-left:none;text-align:left;padding-left:12px;">Фаза</div>
+                        <div class="rm-q-cell current">Месяц 1–3</div>
+                        <div class="rm-q-cell">Месяц 4–6</div>
+                        <div class="rm-q-cell">Месяц 7–9</div>
+                        <div class="rm-q-cell">Месяц 10–12</div>
                     </div>
-                    <!-- Discovery -->
+                    <!-- Kickoff -->
                     <div class="rm-row">
-                        <div class="rm-row-lbl">Discovery</div>
-                        <div class="rm-track">
-                            <div class="rm-track-mid"></div>
-                            <div class="rm-bar rm-bar-active" style="left:0.5%;width:24%;"
-                                data-t="50+ CustDev-интервью" data-ice="ICE: 8.4" data-status="В работе · 70%" data-impact="+Activation +28%" data-owner="PM + Research">
-                                <div class="rm-bar-prog" style="--p:70%"></div><span>50+ CustDev-интервью</span>
-                            </div>
-                            <div class="rm-bar rm-bar-planned" style="left:25.5%;width:11%;"
-                                data-t="CJM v2" data-ice="ICE: 7.0" data-status="Планируется" data-impact="+Фокус retention" data-owner="PM">
-                                <span>CJM v2</span>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Retention -->
-                    <div class="rm-row">
-                        <div class="rm-row-lbl">Retention</div>
-                        <div class="rm-track">
-                            <div class="rm-track-mid"></div>
-                            <div class="rm-bar rm-bar-done" style="left:0.5%;width:13%;"
-                                data-t="Онбординг v2" data-ice="ICE: 9.1" data-status="Готово ✓" data-impact="+Activation +23%" data-owner="PM + Design + Dev">
-                                <span>Онбординг v2</span>
-                            </div>
-                            <div class="rm-bar rm-bar-active" style="left:14%;width:27%;"
-                                data-t="Триггерные email/push" data-ice="ICE: 8.0" data-status="В работе · 45%" data-impact="+D7 Retention +18%" data-owner="PM + Growth">
-                                <div class="rm-bar-prog" style="--p:45%"></div><span>Триггерные письма</span>
-                            </div>
-                            <div class="rm-bar rm-bar-planned" style="left:50%;width:14%;"
-                                data-t="A/B тест D7/D30" data-ice="ICE: 7.5" data-status="Планируется" data-impact="+D30 Retention +12%" data-owner="PM + Analytics">
-                                <span>D7/D30 тест</span>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Growth -->
-                    <div class="rm-row">
-                        <div class="rm-row-lbl">Growth</div>
-                        <div class="rm-track">
-                            <div class="rm-track-mid"></div>
-                            <div class="rm-bar rm-bar-planned" style="left:25.5%;width:19%;"
-                                data-t="Реферальная программа" data-ice="ICE: 7.2" data-status="Планируется" data-impact="+Referral +40%" data-owner="PM + Marketing">
-                                <span>Реф. программа</span>
-                            </div>
-                            <div class="rm-bar rm-bar-planned" style="left:50.5%;width:23%;"
-                                data-t="Масштаб на регионы" data-ice="ICE: 6.8" data-status="Планируется" data-impact="+TAM ×2.5" data-owner="PM + BizDev">
-                                <span>Масштаб на регионы</span>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- AI -->
-                    <div class="rm-row">
-                        <div class="rm-row-lbl">AI / Auto</div>
-                        <div class="rm-track">
-                            <div class="rm-track-mid"></div>
-                            <div class="rm-bar rm-bar-done" style="left:0.5%;width:11%;"
-                                data-t="GPT-ассистент MVP" data-ice="ICE: 9.0" data-status="Готово ✓" data-impact="+NPS +22 pt" data-owner="PM + AI Dev">
-                                <span>GPT MVP</span>
-                            </div>
-                            <div class="rm-bar rm-bar-ai" style="left:12.5%;width:23%;"
-                                data-t="AI-онбординг" data-ice="ICE: 8.6" data-status="В работе · 35%" data-impact="+Activation +30%" data-owner="PM + AI Dev">
-                                <div class="rm-bar-prog" style="--p:35%"></div><span>AI-онбординг</span>
-                            </div>
-                            <div class="rm-bar rm-bar-planned" style="left:50.5%;width:15%;"
-                                data-t="Авто-саппорт 24/7" data-ice="ICE: 7.8" data-status="Планируется" data-impact="-CSC -35%" data-owner="PM + AI Dev">
-                                <span>Авто-саппорт</span>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Infra -->
-                    <div class="rm-row">
-                        <div class="rm-row-lbl">Infra</div>
+                        <div class="rm-row-lbl">Kickoff</div>
                         <div class="rm-track">
                             <div class="rm-track-mid"></div>
                             <div class="rm-bar rm-bar-done" style="left:0.5%;width:9%;"
-                                data-t="KPI-система" data-ice="ICE: 8.8" data-status="Готово ✓" data-impact="Видимость метрик ×3" data-owner="PM + Analytics">
-                                <span>KPI</span>
+                                data-t="Kick-off сессия" data-ice="Приоритет: Критичный" data-status="Готово ✓" data-impact="Единое понимание целей" data-owner="PM + Стейкхолдеры">
+                                <span>Kick-off</span>
                             </div>
-                            <div class="rm-bar rm-bar-active" style="left:10%;width:16%;"
-                                data-t="Аналитический дашборд" data-ice="ICE: 8.2" data-status="В работе · 50%" data-impact="-Time to insight -60%" data-owner="PM + Analytics">
-                                <div class="rm-bar-prog" style="--p:50%"></div><span>Дашборд</span>
+                            <div class="rm-bar rm-bar-done" style="left:10%;width:13%;"
+                                data-t="Stakeholder interviews" data-ice="Приоритет: Высокий" data-status="Готово ✓" data-impact="Требования зафиксированы" data-owner="PM">
+                                <span>Интервью</span>
                             </div>
-                            <div class="rm-bar rm-bar-planned" style="left:75.5%;width:18%;"
-                                data-t="OKR Q4 + планирование" data-ice="ICE: 7.0" data-status="Планируется" data-impact="Alignment команды" data-owner="PM + C-level">
-                                <span>OKR Q4</span>
+                        </div>
+                    </div>
+                    <!-- Planning -->
+                    <div class="rm-row">
+                        <div class="rm-row-lbl">Planning</div>
+                        <div class="rm-track">
+                            <div class="rm-track-mid"></div>
+                            <div class="rm-bar rm-bar-done" style="left:0.5%;width:11%;"
+                                data-t="WBS — декомпозиция задач" data-ice="Приоритет: Критичный" data-status="Готово ✓" data-impact="Скоп определён" data-owner="PM + Команда">
+                                <span>WBS</span>
+                            </div>
+                            <div class="rm-bar rm-bar-active" style="left:12%;width:13%;"
+                                data-t="RACI-матрица" data-ice="Приоритет: Высокий" data-status="В работе · 80%" data-impact="Роли зафиксированы" data-owner="PM + Lead">
+                                <div class="rm-bar-prog" style="--p:80%"></div><span>RACI</span>
+                            </div>
+                            <div class="rm-bar rm-bar-active" style="left:25.5%;width:11%;"
+                                data-t="Risk Register" data-ice="Приоритет: Высокий" data-status="В работе · 60%" data-impact="2 риска под митигацией" data-owner="PM">
+                                <div class="rm-bar-prog" style="--p:60%"></div><span>Риски</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Execution -->
+                    <div class="rm-row">
+                        <div class="rm-row-lbl">Execution</div>
+                        <div class="rm-track">
+                            <div class="rm-track-mid"></div>
+                            <div class="rm-bar rm-bar-done" style="left:12%;width:13%;"
+                                data-t="Sprint 1 — Базовый функционал" data-ice="Velocity: 34 pts" data-status="Готово ✓" data-impact="MVP задачи закрыты" data-owner="Dev + Design">
+                                <span>Sprint 1</span>
+                            </div>
+                            <div class="rm-bar rm-bar-active" style="left:25.5%;width:24%;"
+                                data-t="Sprint 2–3 — Ключевые функции" data-ice="Velocity: 38 pts" data-status="В работе · 45%" data-impact="Основной скоп" data-owner="Dev + Design">
+                                <div class="rm-bar-prog" style="--p:45%"></div><span>Sprint 2–3</span>
+                            </div>
+                            <div class="rm-bar rm-bar-planned" style="left:50%;width:24%;"
+                                data-t="Sprint 4–5 — Финальная разработка" data-ice="Приоритет: Высокий" data-status="Планируется" data-impact="Закрытие скопа" data-owner="Dev + PM">
+                                <span>Sprint 4–5</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Testing -->
+                    <div class="rm-row">
+                        <div class="rm-row-lbl">Testing</div>
+                        <div class="rm-track">
+                            <div class="rm-track-mid"></div>
+                            <div class="rm-bar rm-bar-planned" style="left:50%;width:14%;"
+                                data-t="QA и приёмочное тестирование" data-ice="Приоритет: Критичный" data-status="Планируется" data-impact="0 критических багов" data-owner="QA + PM">
+                                <span>QA</span>
+                            </div>
+                            <div class="rm-bar rm-bar-planned" style="left:65%;width:9%;"
+                                data-t="User acceptance testing" data-ice="Приоритет: Высокий" data-status="Планируется" data-impact="Приёмка стейкхолдером" data-owner="PM + Клиент">
+                                <span>UAT</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Launch -->
+                    <div class="rm-row">
+                        <div class="rm-row-lbl">Launch</div>
+                        <div class="rm-track">
+                            <div class="rm-track-mid"></div>
+                            <div class="rm-bar rm-bar-planned" style="left:75.5%;width:13%;"
+                                data-t="Запуск и передача" data-ice="Приоритет: Критичный" data-status="Планируется" data-impact="Проект сдан в срок" data-owner="PM + Команда">
+                                <span>Запуск</span>
+                            </div>
+                            <div class="rm-bar rm-bar-planned" style="left:88.5%;width:10%;"
+                                data-t="Ретроспектива и документация" data-ice="Приоритет: Средний" data-status="Планируется" data-impact="Знания зафиксированы" data-owner="PM">
+                                <span>Ретро</span>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="rm-okr-bar">OKR 2026: Retention 35%→55% · NPS 52→85+ · CAC ÷ 2 · Запуск в 2+ регионах</div>
+            <div class="rm-okr-bar">Project OKR: Delivery 100% в срок · Budget ≤5% отклонение · 0 критических эскалаций · Velocity ×2</div>
         </div>
         <!-- Tooltip -->
         <div class="rm-tooltip" id="rmTooltip">
@@ -2847,117 +3492,105 @@
         </div>
     </div>
 
-    <!-- CJM artifact -->
+    <!-- Project Status Dashboard artifact -->
     <div class="artifact-cjm-wrap">
         <div class="fade-in">
             <div class="artifact-overline">Пример артефакта 2</div>
-            <h2 class="artifact-title">Customer Journey Map —<br>где продукт теряет людей</h2>
+            <h2 class="artifact-title">Project Status Dashboard —<br>что видит стейкхолдер</h2>
             <p class="artifact-desc">
-                CJM показывает путь пользователя глазами данных, а не предположений.
-                Эмоциональная кривая и точки отвала — основа для приоритизации.
-                Именно здесь находится узкое место, которое съедает конверсию.
+                Еженедельный RAG-отчёт заменяет бесконечные чаты и митинги.
+                Стейкхолдер видит: сроки, бюджет, команду, риски и следующий шаг —
+                за 2 минуты. Нажми на риск, чтобы увидеть план митигации.
             </p>
         </div>
-        <div class="cjm-interactive fade-in" id="cjmInteractive">
-            <div class="cjm-hint">← Нажми на любую стадию, чтобы увидеть барьер и решение PM →</div>
-            <div class="cjm-stages">
-                <!-- Stage 1 -->
-                <div class="cjm-col" data-stage="0">
-                    <div class="cjm-col-head">
-                        <div class="cjm-col-num">01 · Знакомство</div>
-                        <div class="cjm-col-name">Awareness</div>
-                    </div>
-                    <div class="cjm-col-action">Видит таргет или рекомендацию, переходит на лендинг</div>
-                    <div class="cjm-col-emoji">😊 <span class="cjm-col-emoji-label">Интерес</span></div>
+        <div class="psd-interactive fade-in" id="psdInteractive">
+            <div class="psd-header">
+                <div>
+                    <div class="psd-project-name">Запуск EdTech-платформы · Like Центр</div>
+                    <div class="psd-week">Неделя 12 из 24 · Sprint 3 · 28 мая 2026</div>
                 </div>
-                <!-- Stage 2 -->
-                <div class="cjm-col" data-stage="1">
-                    <div class="cjm-col-head">
-                        <div class="cjm-col-num">02 · Регистрация</div>
-                        <div class="cjm-col-name">Sign-up</div>
+                <div class="psd-overall-badge green">В плане</div>
+            </div>
+            <div class="psd-grid">
+                <div class="psd-card">
+                    <div class="psd-card-header">
+                        <div class="psd-rag green"></div>
+                        <div class="psd-card-title">Сроки</div>
                     </div>
-                    <div class="cjm-col-action">Заполняет форму: email, пароль, 8 обязательных полей</div>
-                    <div class="cjm-col-emoji">😐 <span class="cjm-col-emoji-label">Нейтрально</span></div>
+                    <div class="psd-card-value">12 / 24 нед</div>
+                    <div class="psd-card-detail">0 дней отставания · Buffer 5 дней</div>
                 </div>
-                <!-- Stage 3 — CRITICAL -->
-                <div class="cjm-col critical" data-stage="2">
-                    <div class="cjm-col-head">
-                        <div class="cjm-col-num">03 · Онбординг ⚠</div>
-                        <div class="cjm-col-name">Onboarding</div>
+                <div class="psd-card">
+                    <div class="psd-card-header">
+                        <div class="psd-rag amber"></div>
+                        <div class="psd-card-title">Бюджет</div>
                     </div>
-                    <div class="cjm-col-action">7 шагов настройки профиля — непонятно зачем и что дальше</div>
-                    <div class="cjm-col-emoji">😤 <span class="cjm-col-emoji-label">Раздражение</span></div>
+                    <div class="psd-card-value">94% исп.</div>
+                    <div class="psd-card-detail">+6% scope creep · CR процесс открыт</div>
                 </div>
-                <!-- Stage 4 -->
-                <div class="cjm-col" data-stage="3">
-                    <div class="cjm-col-head">
-                        <div class="cjm-col-num">04 · Активация</div>
-                        <div class="cjm-col-name">Activation</div>
+                <div class="psd-card">
+                    <div class="psd-card-header">
+                        <div class="psd-rag green"></div>
+                        <div class="psd-card-title">Команда</div>
                     </div>
-                    <div class="cjm-col-action">Получает первый ощутимый результат / завершает урок</div>
-                    <div class="cjm-col-emoji">😃 <span class="cjm-col-emoji-label">Удовлетворение</span></div>
+                    <div class="psd-card-value">4 / 4 ресурса</div>
+                    <div class="psd-card-detail">Velocity ×1.8 · Блокеров нет</div>
                 </div>
-                <!-- Stage 5 -->
-                <div class="cjm-col" data-stage="4">
-                    <div class="cjm-col-head">
-                        <div class="cjm-col-num">05 · Удержание</div>
-                        <div class="cjm-col-name">Retention</div>
+                <div class="psd-card">
+                    <div class="psd-card-header">
+                        <div class="psd-rag red"></div>
+                        <div class="psd-card-title">Риски</div>
                     </div>
-                    <div class="cjm-col-action">Возвращается, оплачивает следующий период</div>
-                    <div class="cjm-col-emoji">🤩 <span class="cjm-col-emoji-label">Лояльность</span></div>
+                    <div class="psd-card-value">2 открытых</div>
+                    <div class="psd-card-detail">1 критический · Митигация активна</div>
                 </div>
             </div>
+            <div class="psd-risks-list">
+                <div class="psd-risks-header">Открытые риски — нажми, чтобы увидеть план митигации</div>
 
-            <!-- Emotion curve -->
-            <div class="cjm-curve-wrap">
-                <svg class="cjm-curve-svg" viewBox="0 0 560 72" preserveAspectRatio="none" id="cjmSvg">
-                    <defs>
-                        <linearGradient id="cjmGrad" x1="0" y1="0" x2="0" y2="1">
-                            <stop offset="0%" stop-color="#C4822A" stop-opacity="0.25"/>
-                            <stop offset="100%" stop-color="#C4822A" stop-opacity="0"/>
-                        </linearGradient>
-                    </defs>
-                    <!-- Area fill -->
-                    <path id="cjmArea"
-                        d="M56,22 C90,22 135,32 168,34 C200,36 245,58 280,58 C315,58 352,20 392,18 C430,16 472,10 504,8 L504,72 L56,72 Z"
-                        class="cjm-curve-area"/>
-                    <!-- Curve -->
-                    <path id="cjmPath"
-                        d="M56,22 C90,22 135,32 168,34 C200,36 245,58 280,58 C315,58 352,20 392,18 C430,16 472,10 504,8"
-                        class="cjm-curve-path"/>
-                    <!-- Dots -->
-                    <circle cx="56"  cy="22" r="4" fill="#7dc98a" id="cjmDot0"/>
-                    <circle cx="168" cy="34" r="4" fill="#C4822A" id="cjmDot1"/>
-                    <circle cx="280" cy="58" r="5.5" fill="#e07070" id="cjmDot2"/>
-                    <circle cx="392" cy="18" r="4" fill="#C4822A" id="cjmDot3"/>
-                    <circle cx="504" cy="8"  r="4" fill="#7dc98a" id="cjmDot4"/>
-                    <!-- Drop-off label -->
-                    <text x="280" y="72" text-anchor="middle" style="font-family:Inter,sans-serif;font-size:8px;fill:rgba(220,100,100,0.8);font-weight:700;">▼ 62% drop-off</text>
-                </svg>
-            </div>
+                <div class="psd-risk-item psd-risk-high" data-risk="0">
+                    <div class="psd-risk-level">Высокий</div>
+                    <div class="psd-risk-title">Задержка интеграции со сторонним API — вендор сдвинул срок на 2 недели</div>
+                    <div class="psd-risk-expand">↓</div>
+                </div>
+                <div class="psd-risk-detail" id="psdRisk0">
+                    <div class="psd-risk-detail-grid">
+                        <div><div class="psd-rd-label">Вероятность</div><div class="psd-rd-val">Высокая · реализуется</div></div>
+                        <div><div class="psd-rd-label">Влияние</div><div class="psd-rd-val">+7 дней к сроку</div></div>
+                        <div><div class="psd-rd-label">Митигация</div><div class="psd-rd-val">Подключили резервного вендора, перенесли Sprint 4. Buffer 5 дней поглощает риск.</div></div>
+                    </div>
+                </div>
 
-            <!-- Detail panel -->
-            <div class="cjm-detail" id="cjmDetail">
-                <div class="cjm-detail-inner">
-                    <div class="cjm-db">
-                        <h4>Барьер / боль</h4>
-                        <p id="cjmPain"></p>
-                        <div id="cjmPainTag"></div>
+                <div class="psd-risk-item psd-risk-med" data-risk="1">
+                    <div class="psd-risk-level">Средний</div>
+                    <div class="psd-risk-title">Scope creep: стейкхолдер добавил 3 требования вне начального скопа</div>
+                    <div class="psd-risk-expand">↓</div>
+                </div>
+                <div class="psd-risk-detail" id="psdRisk1">
+                    <div class="psd-risk-detail-grid">
+                        <div><div class="psd-rd-label">Вероятность</div><div class="psd-rd-val">Реализуется</div></div>
+                        <div><div class="psd-rd-label">Влияние</div><div class="psd-rd-val">+6% бюджета</div></div>
+                        <div><div class="psd-rd-label">Митигация</div><div class="psd-rd-val">Change request процесс введён. Новые требования — в Q4 спринт. CR подписан стейкхолдером.</div></div>
                     </div>
-                    <div class="cjm-db">
-                        <h4>Решение PM</h4>
-                        <p id="cjmFix"></p>
-                        <div id="cjmFixTag"></div>
-                    </div>
-                    <div class="cjm-db">
-                        <h4>Результат</h4>
-                        <p id="cjmMetric"></p>
-                        <div id="cjmMetricTag"></div>
+                </div>
+
+                <div class="psd-risk-item psd-risk-low" data-risk="2">
+                    <div class="psd-risk-level">Низкий</div>
+                    <div class="psd-risk-title">Ключевой разработчик в отпуске на неделю — Sprint 4 под наблюдением</div>
+                    <div class="psd-risk-expand">↓</div>
+                </div>
+                <div class="psd-risk-detail" id="psdRisk2">
+                    <div class="psd-risk-detail-grid">
+                        <div><div class="psd-rd-label">Вероятность</div><div class="psd-rd-val">Запланировано</div></div>
+                        <div><div class="psd-rd-label">Влияние</div><div class="psd-rd-val">Velocity –20% на 1 нед</div></div>
+                        <div><div class="psd-rd-label">Митигация</div><div class="psd-rd-val">Задачи перераспределены. Cross-training проведён. Velocity-буфер учтён в плане Sprint 4.</div></div>
                     </div>
                 </div>
             </div>
-
-            <div class="cjm-result-bar">Итог: Activation +23% · D30 Retention 18%→42% · NPS 52→90+</div>
+            <div class="psd-next-step">
+                <span class="psd-ns-label">Следующий шаг →</span>
+                Демо для стейкхолдера в пятницу · Финализировать план Sprint 4 · Закрыть риск по API до вторника · CR подписать до конца недели
+            </div>
         </div>
     </div>
 </section>
@@ -2974,11 +3607,11 @@
             <div class="test-card">
                 <span class="test-quote-mark">"</span>
                 <p class="test-text">
-                    Валентина — редкий специалист, который мыслит AI не как технологией,
-                    а как инструментом роста метрик. Когда мы обсуждали кейсы внедрения нейросетей,
-                    она сразу переводила в бизнес-язык: как это изменит retention, сократит CAC,
-                    ускорит онбординг. Такой product sense встречается редко — даже среди тех,
-                    кто давно работает с AI.
+                    Когда мы разбирали запуски AI-проектов, Валентина мыслила не «как внедрить нейросеть»,
+                    а «как сдать проект в срок при всех зависимостях». Видела риски до того,
+                    как они становились проблемами, выстраивала RACI с первой недели.
+                    Такое проектное мышление в AI-команде встречается редко — именно оно
+                    превращает демонстрацию в рабочий продукт.
                 </p>
                 <div class="test-author">
                     <span class="test-name">Дмитрий Ледовских</span>
@@ -2989,11 +3622,11 @@
             <div class="test-card">
                 <span class="test-quote-mark">"</span>
                 <p class="test-text">
-                    У меня несколько бизнесов, и главная боль собственника — когда команда
-                    работает, бюджет тратится, а продукт не растёт. Валентина умеет найти
-                    это узкое место: не через советы и интуицию, а через данные и конкретные
-                    шаги. Человек, который превращает операционный хаос в систему с понятными KPI
-                    и берёт ответственность за результат — это редкость.
+                    У меня несколько бизнесов, и главная боль собственника — когда команды работают,
+                    бюджет тратится, а дедлайны срываются. Валентина умеет навести порядок без
+                    лишних слов: RACI, статусы, чёткие зоны ответственности. Она не спрашивает
+                    «что делать» — берёт контекст и ставит процессы. Такой человек стоит дороже,
+                    чем кажется на собеседовании.
                 </p>
                 <div class="test-author">
                     <span class="test-name">Виктор Гор</span>
@@ -3004,11 +3637,11 @@
             <div class="test-card">
                 <span class="test-quote-mark">"</span>
                 <p class="test-text">
-                    Работали вместе в Бизнес-Гарант. Валентина запустила EdTech-продукт с нуля
-                    и довела Retention до 80% — для подписочной модели это нереальные цифры,
-                    я не преувеличиваю. Она думает о продукте как собственник: ROI, юнит-экономика,
-                    долгосрочный LTV. Не «сделаем фичу» — а «эта фича даст нам +X% к удержанию
-                    и окупится через N месяцев». Именно такие люди нужны растущему бизнесу.
+                    В Бизнес-Гарант Валентина запустила EdTech-проект с нуля — от стратегии и финмодели
+                    до команды и регламентов. Я видел, как она держала в голове бюджет, сроки, команду
+                    и клиентов одновременно — и ни одна тарелка не упала. Для растущего бизнеса
+                    такой project manager, который думает как собственник — это редкость.
+                    Retention 80% — это не удача, это управление.
                 </p>
                 <div class="test-author">
                     <span class="test-name">Илья Руднев</span>
@@ -3031,36 +3664,36 @@
             <div class="faq-item">
                 <div class="faq-q">Почему ушли из Like Центра?</div>
                 <div class="faq-a">
-                    Уперлась в потолок — по карьерному росту и по зарплате.
-                    Люблю расти: когда вижу, что задачи стали меньше меня, иду искать новый масштаб.
-                    Из Like Центра ушла <strong>по собственному желанию</strong>, без конфликтов.
-                    Готова дать контакт руководителя для рекомендации.
+                    Хочу строить карьеру в IT — это направление мне очень откликается.
+                    Like Центр дал отличный опыт, но я чётко понимаю: хочу расти именно в IT,
+                    и ищу компанию, где это возможно. Ушла <strong>по собственному желанию</strong>,
+                    без конфликтов. Готова дать контакт руководителя для рекомендации.
                 </div>
             </div>
             <div class="faq-item">
                 <div class="faq-q">Какие зарплатные ожидания?</div>
                 <div class="faq-a">
-                    <strong>От 180 тыс. руб.</strong> на руки — обсуждается индивидуально
-                    в зависимости от задачи, продукта и формата работы.
-                    Важнее деньги на входе или интересная задача — зависит от того,
-                    что предлагает компания.
+                    <strong>От 150 тыс. руб.</strong> на руки — обсуждается индивидуально
+                    в зависимости от задачи, скопа и формата работы.
+                    Интересный проект и возможность влиять на результат для меня важнее
+                    чем ±10% к ставке.
                 </div>
             </div>
             <div class="faq-item">
-                <div class="faq-q">Вы IC или готовы возглавить отдел?</div>
+                <div class="faq-q">Управляли ли вы командой или только проектами?</div>
                 <div class="faq-a">
-                    Оба формата. Могу быть <strong>сильным IC</strong> с полной ответственностью
-                    за продукт — и могу <strong>возглавить команду</strong> PM-ов или Customer Success.
-                    Управляла федеральным отделом продаж (20+ регионов) и кросс-функциональными командами
-                    на стыке разработки, маркетинга и CRM.
+                    Оба опыта есть. В Like Центре управляла <strong>кросс-функциональной командой 20+ человек</strong>
+                    (разработка, аналитика, маркетинг, продажи, сервис) — полноценное руководство,
+                    не только координация. Плюс федеральный отдел продаж <strong>(20+ регионов)</strong> в ProGorod.
+                    Готова как к роли PjM в команде, так и к руководству направлением.
                 </div>
             </div>
             <div class="faq-item">
                 <div class="faq-q">Когда готовы выйти и как быстро будет результат?</div>
                 <div class="faq-a">
                     Готова выйти <strong>сразу</strong> — от звонка до старта минимум времени.
-                    За первые <strong>2 недели</strong> — диагностика и приоритизированный план.
-                    За <strong>2 месяца</strong> — первые измеримые сдвиги в метриках.
+                    За первые <strong>2 недели</strong> — kick-off, карта проекта, RACI, Risk Register.
+                    За <strong>2 месяца</strong> — рабочие процессы, ритм статусов, первые сданные задачи.
                     Первый шаг: 30-минутный звонок, чтобы понять задачу и друг друга.
                 </div>
             </div>
@@ -3080,17 +3713,17 @@
 
             <div class="plan90-phase">
                 <div class="phase-badge">30</div>
-                <div class="phase-name">Погружение<br>и диагностика</div>
+                <div class="phase-name">Погружение<br>и аудит</div>
                 <ul class="phase-list">
-                    <li>15+ CustDev с текущими и бывшими пользователями</li>
-                    <li>Анализ воронки: где теряем, сколько теряем, почему</li>
-                    <li>CJM и аудит онбординга — где ключевые точки отвала</li>
-                    <li>Изучение команды: кто что делает, где затыки в процессах</li>
-                    <li>Бенчмарки конкурентов по метрикам</li>
+                    <li>Изучаю текущие проекты: статус, риски, команды, инструменты</li>
+                    <li>Интервью со стейкхолдерами и ключевыми участниками</li>
+                    <li>Строю карту рисков и узких мест в процессах</li>
+                    <li>Аудит: где задачи теряются, кто за что отвечает</li>
+                    <li>Фиксирую базовые метрики: velocity, дедлайны, бюджет</li>
                 </ul>
                 <div class="phase-result">
                     <span class="phase-result-label">Итог:</span>
-                    Диагностика с приоритизированным списком гипотез — что делать первым и почему, с обоснованием через данные
+                    Диагностика с картой приоритетов — что тормозит, почему, и что починить первым
                 </div>
             </div>
 
@@ -3098,17 +3731,17 @@
 
             <div class="plan90-phase">
                 <div class="phase-badge phase-badge--mid">60</div>
-                <div class="phase-name">Первые гипотезы<br>и результаты</div>
+                <div class="phase-name">Первые процессы<br>и улучшения</div>
                 <ul class="phase-list">
-                    <li>Запуск 2–3 приоритетных гипотез в первый спринт</li>
-                    <li>A/B тесты на онбординге или ключевом шаге воронки</li>
-                    <li>Первые замеры: activation rate, D7 и D30 retention</li>
-                    <li>Product roadmap на квартал с привязкой к OKR</li>
-                    <li>Ритм: недельный статус-репорт для вас — RAG + следующий шаг</li>
+                    <li>Запускаю ритм: weekly sync + RAG-статусы для стейкхолдеров</li>
+                    <li>RACI на приоритетных проектах — роли зафиксированы</li>
+                    <li>Устраняю узкие места из диагностики</li>
+                    <li>Первые спринты с velocity-трекингом</li>
+                    <li>Risk Register — открытые риски под митигацией</li>
                 </ul>
                 <div class="phase-result">
                     <span class="phase-result-label">Итог:</span>
-                    Первые измеримые сдвиги в метриках и прозрачная картина: что дальше и зачем
+                    Команда в синхроне, процессы видны, стейкхолдеры получают прозрачные отчёты
                 </div>
             </div>
 
@@ -3116,17 +3749,17 @@
 
             <div class="plan90-phase">
                 <div class="phase-badge phase-badge--end">90</div>
-                <div class="phase-name">Система<br>и масштаб</div>
+                <div class="phase-name">Система<br>и delivery</div>
                 <ul class="phase-list">
-                    <li>Закреплённый рост через retention-механики и автоматизацию</li>
-                    <li>Процессы, которые работают без ручного управления</li>
-                    <li>Команда знает приоритеты — собственник не в копии каждого письма</li>
-                    <li>Данные для масштабирования на новые сегменты</li>
+                    <li>Процессы работают без ручного управления каждым шагом</li>
+                    <li>Команда знает приоритеты и зоны ответственности</li>
+                    <li>Первые проекты сданы по плану в срок</li>
                     <li>OKR на следующий квартал согласованы и защищены</li>
+                    <li>Документация и передача знаний налажены</li>
                 </ul>
                 <div class="phase-result">
                     <span class="phase-result-label">Итог:</span>
-                    Продукт растёт системно. Вы занимаетесь стратегией, а не операционкой
+                    Вы занимаетесь стратегией. Операционка не требует вашего участия в каждой задаче
                 </div>
             </div>
 
@@ -3134,34 +3767,6 @@
     </div>
 </section>
 
-<!-- ══ NOT FIT ════════════════════════════════════ -->
-<div class="notfit-strip">
-    <div class="notfit-inner">
-        <div class="notfit-title fade-in">Честно: не ваш кандидат, если...</div>
-        <div class="notfit-grid fade-in">
-            <div class="notfit-item">
-                <span class="notfit-x">✕</span>
-                PM нужен как «передатчик задач» от разработчиков — без влияния на продукт
-            </div>
-            <div class="notfit-item">
-                <span class="notfit-x">✕</span>
-                Нет доступа к данным и аналитике — решения принимаются на ощущениях
-            </div>
-            <div class="notfit-item">
-                <span class="notfit-x">✕</span>
-                Приоритеты меняются каждую неделю и это считается нормой
-            </div>
-            <div class="notfit-item">
-                <span class="notfit-x">✕</span>
-                Продукт не менялся год — и никто не знает, нужно ли его менять
-            </div>
-        </div>
-        <div class="notfit-footer fade-in">
-            Если узнали свою компанию — лучше не тратить время друг друга.<br>
-            <strong>Если нет — напишите. Поговорим честно и без питча.</strong>
-        </div>
-    </div>
-</div>
 
 <!-- ══ DIAGNOSTICS ════════════════════════════════ -->
 <section id="diagnostics">
@@ -3171,8 +3776,8 @@
             <h2 class="diag-title">Давайте<br>познакомимся</h2>
             <p class="diag-desc">
                 Короткий звонок, чтобы понять: подходим ли мы друг другу.
-                Расскажу, как подходила к похожим задачам — с цифрами и конкретикой.
-                Вы сами решите, есть ли смысл двигаться дальше.
+                Расскажу, как держала в срок 5 AI-проектов параллельно и как
+                20 регионов работали без эскалаций к CEO. С цифрами и конкретикой.
             </p>
         </div>
         <div class="diag-right fade-in">
@@ -3183,7 +3788,7 @@
                 </li>
                 <li>
                     <div class="diag-check"></div>
-                    Разберём контекст вашего продукта — и что бы я смотрела первым
+                    Разберём контекст вашего проекта — и что бы я смотрела первым
                 </li>
                 <li>
                     <div class="diag-check"></div>
@@ -3191,13 +3796,21 @@
                 </li>
                 <li>
                     <div class="diag-check"></div>
-                    Обозначим формат и ожидания: что реально можно сделать за первые 2 месяца
+                    Обозначим формат: что реально сделать за первые 2 месяца
                 </li>
                 <li>
                     <div class="diag-check"></div>
                     Если не подхожу — скажу прямо и, возможно, посоветую, кто подойдёт лучше
                 </li>
             </ul>
+            <div class="response-timer">
+                <span class="rt-icon">⏱</span>
+                <div>
+                    <div class="rt-text">Среднее время ответа</div>
+                    <div class="rt-time" id="rtDisplay">02:00:00</div>
+                    <div class="rt-label">часов · минут · секунд</div>
+                </div>
+            </div>
             <a href="https://t.me/ValentinaMinakova" class="btn-diag" target="_blank">
                 → Написать в Telegram
             </a>
@@ -3207,7 +3820,7 @@
 
 <!-- footer -->
 <footer style="background:var(--dark);padding:28px 64px;text-align:center;font-size:0.68rem;letter-spacing:0.08em;color:rgba(255,255,255,0.2);">
-    © 2026 Валентина Шешунова · Product Manager
+    © 2026 Валентина Шешунова · Project Manager
 </footer>
 
 <!-- ══ STICKY TELEGRAM ════════════════════════════ -->
@@ -3236,36 +3849,6 @@
         nav.classList.toggle('is-scrolled', window.scrollY > 60);
     }, { passive: true });
 
-    /* ── Custom cursor ── */
-    const dot  = document.getElementById('cursorDot');
-    const ring = document.getElementById('cursorRing');
-    let mx = window.innerWidth / 2, my = window.innerHeight / 2;
-    let rx = mx, ry = my;
-
-    dot.style.left = mx + 'px'; dot.style.top = my + 'px';
-
-    document.addEventListener('mousemove', e => {
-        mx = e.clientX; my = e.clientY;
-        dot.style.left = mx + 'px'; dot.style.top = my + 'px';
-    });
-    document.addEventListener('mouseleave', () => {
-        dot.style.opacity = '0'; ring.style.opacity = '0';
-    });
-    document.addEventListener('mouseenter', () => {
-        dot.style.opacity = '1'; ring.style.opacity = '1';
-    });
-
-    (function animateRing() {
-        rx += (mx - rx) * 0.11;
-        ry += (my - ry) * 0.11;
-        ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
-        requestAnimationFrame(animateRing);
-    })();
-
-    document.querySelectorAll('a, button, .case-card, .whyme-card, .process-step, .faq-item').forEach(el => {
-        el.addEventListener('mouseenter', () => { dot.classList.add('is-hovering'); ring.classList.add('is-hovering'); });
-        el.addEventListener('mouseleave', () => { dot.classList.remove('is-hovering'); ring.classList.remove('is-hovering'); });
-    });
 
     /* ── Fade-in on scroll ── */
     const io = new IntersectionObserver((entries) => {
@@ -3337,6 +3920,24 @@
         });
     });
 
+
+    /* ── Response Timer ── */
+    (function() {
+        const display = document.getElementById('rtDisplay');
+        if (!display) return;
+
+        // Starts at 2h and counts down, then resets — simulating "avg response time"
+        let totalSec = 2 * 3600;
+        setInterval(() => {
+            totalSec--;
+            if (totalSec < 0) totalSec = 2 * 3600;
+            const h = String(Math.floor(totalSec / 3600)).padStart(2, '0');
+            const m = String(Math.floor((totalSec % 3600) / 60)).padStart(2, '0');
+            const s = String(totalSec % 60).padStart(2, '0');
+            display.textContent = `${h}:${m}:${s}`;
+        }, 1000);
+    })();
+
     /* ── Hero subtle parallax ── */
     const heroLeft = document.querySelector('.hero-left');
     if (heroLeft) {
@@ -3395,73 +3996,22 @@
     const rmEl = document.getElementById('rmInteractive');
     if (rmEl) rmIo.observe(rmEl);
 
-    /* ── Interactive CJM ── */
-    const cjmData = [
-        { pain: 'Скептицизм и много конкурентов — сложно выделиться на перегретом рынке.',
-          painTag: '', fix: 'Сильный value prop на лендинге, social proof, конкретная цифра выгоды в заголовке.',
-          fixTag: 'A/B тест заголовков', metric: 'CTR +18% · Bounce -24%', metricTag: 'Замеряем сразу', metricColor: 'green' },
-        { pain: '8 обязательных полей при регистрации — пользователь устаёт и закрывает вкладку.',
-          painTag: '↓ Conv. reg. −23%', fix: '1-click signup через Google/Telegram, поле email + кнопка. Остальное — после.',
-          fixTag: '1-click signup', metric: 'Conversion rate +34%', metricTag: 'D0 улучшение', metricColor: 'green' },
-        { pain: '7 шагов настройки без понятной ценности на каждом шаге. Пользователь не понимает, зачем. 62% уходят.',
-          painTag: '⚠ 62% drop-off', fix: 'Сократить до 3 шагов. Показать aha-moment на шаге 2. Прогресс-бар с "осталось 1 шаг".',
-          fixTag: '→ 3 шага вместо 7', metric: 'Activation +23% · D1 Ret. +31%', metricTag: 'Главный рычаг', metricColor: 'amber' },
-        { pain: 'Слишком долго до первого ощутимого WOW — пользователь не видит ценности быстро.',
-          painTag: '↓ D1 Retention', fix: 'Quick win на первых 5 минутах. Aha-moment встроен в онбординг, не откладывается.',
-          fixTag: '→ Aha-moment раньше', metric: 'D7 Retention +28%', metricTag: 'Лояльность растёт', metricColor: 'green' },
-        { pain: 'Нет триггеров возврата — пользователь забывает о продукте после первой недели.',
-          painTag: '↑ Churn D30', fix: 'D7/D30 email-цепочка, push-уведомления по событиям, реферальный бонус за приглашение друга.',
-          fixTag: '→ D7/D30 триггеры', metric: 'D30 Retention 18%→42%', metricTag: 'Ключевая метрика', metricColor: 'amber' }
-    ];
+    /* ── Project Status Dashboard ── */
+    document.querySelectorAll('.psd-risk-item').forEach(item => {
+        item.addEventListener('click', () => {
+            const riskId = item.dataset.risk;
+            const detail = document.getElementById('psdRisk' + riskId);
+            const isOpen = item.classList.contains('open');
 
-    const cjmCols  = document.querySelectorAll('.cjm-col');
-    const cjmDetail = document.getElementById('cjmDetail');
-    const cjmPainEl = document.getElementById('cjmPain');
-    const cjmPainTagEl = document.getElementById('cjmPainTag');
-    const cjmFixEl  = document.getElementById('cjmFix');
-    const cjmFixTagEl = document.getElementById('cjmFixTag');
-    const cjmMetricEl = document.getElementById('cjmMetric');
-    const cjmMetricTagEl = document.getElementById('cjmMetricTag');
-    let cjmActive = -1;
+            document.querySelectorAll('.psd-risk-item').forEach(i => i.classList.remove('open'));
+            document.querySelectorAll('.psd-risk-detail').forEach(d => d.classList.remove('open'));
 
-    cjmCols.forEach((col, i) => {
-        col.addEventListener('click', () => {
-            if (cjmActive === i) {
-                cjmCols.forEach(c => c.classList.remove('active'));
-                cjmDetail.classList.remove('open');
-                cjmActive = -1;
-                return;
+            if (!isOpen) {
+                item.classList.add('open');
+                if (detail) detail.classList.add('open');
             }
-            cjmCols.forEach(c => c.classList.remove('active'));
-            col.classList.add('active');
-            cjmActive = i;
-            const d = cjmData[i];
-            cjmPainEl.textContent = d.pain;
-            cjmPainTagEl.innerHTML = d.painTag ? `<span class="cjm-tag red">${d.painTag}</span>` : '';
-            cjmFixEl.textContent = d.fix;
-            cjmFixTagEl.innerHTML = `<span class="cjm-tag amber">${d.fixTag}</span>`;
-            cjmMetricEl.textContent = d.metric;
-            cjmMetricTagEl.innerHTML = `<span class="cjm-tag ${d.metricColor}">${d.metricTag}</span>`;
-            cjmDetail.classList.add('open');
         });
     });
-
-    // Draw emotion curve on scroll
-    const cjmPath = document.getElementById('cjmPath');
-    const cjmArea = document.getElementById('cjmArea');
-    const cjmIo = new IntersectionObserver(entries => {
-        entries.forEach(e => {
-            if (e.isIntersecting) {
-                setTimeout(() => {
-                    if (cjmPath) cjmPath.classList.add('drawn');
-                    if (cjmArea) cjmArea.classList.add('drawn');
-                }, 200);
-                cjmIo.unobserve(e.target);
-            }
-        });
-    }, { threshold: 0.3 });
-    const cjmEl = document.getElementById('cjmInteractive');
-    if (cjmEl) cjmIo.observe(cjmEl);
 
     /* ── Mouse spotlight ── */
     const spotlight = document.getElementById('spotlight');
@@ -3516,6 +4066,27 @@
         heroRight.addEventListener('mouseleave', () => {
             photoFrame.style.transform = '';
             photoFrame.style.transition = 'transform 0.6s ease';
+        });
+    }
+
+    /* ── Burger menu ── */
+    const burger = document.getElementById('navBurger');
+    const mainNav = document.getElementById('mainNav');
+    const navLinks = document.getElementById('navLinks');
+    if (burger && mainNav && navLinks) {
+        burger.addEventListener('click', () => {
+            const open = burger.classList.toggle('open');
+            mainNav.classList.toggle('nav-open', open);
+            burger.setAttribute('aria-expanded', open);
+            document.body.style.overflow = open ? 'hidden' : '';
+        });
+        navLinks.querySelectorAll('a').forEach(a => {
+            a.addEventListener('click', () => {
+                burger.classList.remove('open');
+                mainNav.classList.remove('nav-open');
+                burger.setAttribute('aria-expanded', 'false');
+                document.body.style.overflow = '';
+            });
         });
     }
 </script>
