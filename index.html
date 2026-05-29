@@ -1692,7 +1692,7 @@
             .cjm-detail-inner { grid-template-columns: 1fr 1fr; }
 
             nav { padding: 18px 40px; }
-            #hero { grid-template-columns: 1fr; }
+            #hero { grid-template-columns: minmax(0, 1fr); }
             .hero-left { padding: 100px 40px 60px; border-right: none; border-bottom: 1px solid var(--border); }
             .hero-right { padding: 60px 40px; min-height: 55vw; }
             #stats { grid-template-columns: repeat(3, 1fr); }
@@ -1755,9 +1755,10 @@
             }
             nav.nav-open .nav-links a { font-size: 1.2rem; letter-spacing: 0.04em; color: #e8e2da; }
             nav.nav-open .nav-cta { padding: 14px 32px !important; font-size: 1rem !important; }
-            .hero-left { padding: 88px 24px 48px; max-width: 100vw; overflow-x: hidden; }
-            .hero-right { padding: 40px 24px; min-height: 70vw; max-width: 100vw; }
-            .available-badge { max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+            .hero-left { padding: 88px 24px 48px; min-width: 0; overflow-x: hidden; }
+            .hero-right { padding: 40px 24px; min-height: 70vw; min-width: 0; }
+            .hero-overline { letter-spacing: 0.1em; font-size: 0.62rem; }
+            .available-badge { letter-spacing: 0.08em; font-size: 0.6rem; }
             .section { padding: 64px 24px; }
             .section-number { font-size: 3.5rem; }
             #expertise, #diagnostics, #contact, #process, #artifact, #faq { padding: 64px 24px; }
