@@ -791,9 +791,19 @@
         #testimonials { border-top: 1px solid var(--border); }
 
         .test-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+        .test-row {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+        .test-row-screenshots {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
+            gap: 16px;
         }
 
         .test-card {
@@ -831,7 +841,7 @@
         .test-role { font-size: 0.7rem; letter-spacing: 0.04em; color: var(--gray-500); line-height: 1.4; }
 
         .test-card--img { padding: 0; overflow: hidden; }
-        .test-card--img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .test-card--img img { width: 100%; height: auto; display: block; max-height: 340px; object-fit: cover; object-position: top; }
 
         /* ─── 90-DAY PLAN ─────────────────── */
         .plan90-section {
@@ -1707,7 +1717,8 @@
             .timeline-item { grid-template-columns: 1fr; gap: 14px; }
             .timeline-item:hover { margin: 0 -40px; padding: 52px 40px; }
             .cases-grid { grid-template-columns: 1fr; }
-            .test-grid { grid-template-columns: 1fr; }
+            .test-row { grid-template-columns: 1fr; }
+            .test-row-screenshots { grid-template-columns: 1fr; }
             .diag-inner { grid-template-columns: 1fr; gap: 48px; }
             .process-steps { grid-template-columns: repeat(2, 1fr); }
             .artifact-inner { grid-template-columns: 1fr; gap: 40px; }
@@ -3617,41 +3628,43 @@
         </div>
         <div class="test-grid fade-in">
 
-            <div class="test-card">
-                <span class="test-quote-mark">"</span>
-                <p class="test-text">
-                    Валентина — это суперответственный человек, который задолбает любого и всех в команде, чтобы сделать результат.
-                    Спасибо за опыт, которым ты усиливала нашу команду. За твёрдость, за рамки — за то, что важно держать фокус на главном.
-                    За включённость, за результативность, за организованность.<br>И просто классный, хороший человек.
-                </p>
-                <div class="test-author">
-                    <span class="test-name">Дмитрий Ледовских</span>
-                    <span class="test-role">Топ-эксперт по нейросетям и вайбкодингу в России</span>
+            <div class="test-row">
+                <div class="test-card">
+                    <span class="test-quote-mark">"</span>
+                    <p class="test-text">
+                        Валентина — это суперответственный человек, который задолбает любого и всех в команде, чтобы сделать результат.
+                        Спасибо за опыт, которым ты усиливала нашу команду. За твёрдость, за рамки — за то, что важно держать фокус на главном.
+                        За включённость, за результативность, за организованность.<br>И просто классный, хороший человек.
+                    </p>
+                    <div class="test-author">
+                        <span class="test-name">Дмитрий Ледовских</span>
+                        <span class="test-role">Топ-эксперт по нейросетям и вайбкодингу в России</span>
+                    </div>
+                </div>
+
+                <div class="test-card">
+                    <span class="test-quote-mark">"</span>
+                    <p class="test-text">
+                        С Валентиной было легко — всё, что мы вместе задумывали, всё реализовывалось.
+                        Это тот человек, который точно может достигать реальных результатов и с которым хочется работать вновь.
+                    </p>
+                    <div class="test-author">
+                        <span class="test-name">Илья Руднев</span>
+                        <span class="test-role">Основатель экосистемы «Бизнес-Гарант», лидер «Эквиум Самара», автор книги «Выход»</span>
+                    </div>
                 </div>
             </div>
 
-            <div class="test-card">
-                <span class="test-quote-mark">"</span>
-                <p class="test-text">
-                    С Валентиной было легко — всё, что мы вместе задумывали, всё реализовывалось.
-                    Это тот человек, который точно может достигать реальных результатов и с которым хочется работать вновь.
-                </p>
-                <div class="test-author">
-                    <span class="test-name">Илья Руднев</span>
-                    <span class="test-role">Основатель экосистемы «Бизнес-Гарант», лидер «Эквиум Самара», автор книги «Выход»</span>
+            <div class="test-row-screenshots">
+                <div class="test-card test-card--img">
+                    <img src="photo_2026-05-30_19-29-50.jpg" alt="Отзыв Евгений Божко">
                 </div>
-            </div>
-
-            <div class="test-card test-card--img">
-                <img src="photo_2026-05-30_19-29-50.jpg" alt="Отзыв Евгений Божко">
-            </div>
-
-            <div class="test-card test-card--img">
-                <img src="photo_2026-05-30_19-30-04.jpg" alt="Отзыв Эдуард Котлобай">
-            </div>
-
-            <div class="test-card test-card--img">
-                <img src="photo_2026-05-30_19-30-12.jpg" alt="Отзыв Mikhail Pshenko">
+                <div class="test-card test-card--img">
+                    <img src="photo_2026-05-30_19-30-04.jpg" alt="Отзыв Эдуард Котлобай">
+                </div>
+                <div class="test-card test-card--img">
+                    <img src="photo_2026-05-30_19-30-12.jpg" alt="Отзыв Mikhail Pshenko">
+                </div>
             </div>
 
         </div>
